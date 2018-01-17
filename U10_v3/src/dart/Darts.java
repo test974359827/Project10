@@ -42,10 +42,11 @@ public abstract class Darts implements IDarts {
 	}
 
 	
-	//shayansfsd
+	//shayansfsdmkaDKLAMDLKMASDKASKMKASD
 
-	// halr43  
-	//jhfhgf
+	
+	// halr43 LJ N 
+	
 	
 	
 	public boolean addPlayer(Player player){

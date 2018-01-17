@@ -20,7 +20,7 @@ public abstract class Darts implements IDarts {
 		game();
 	}
 
-	//ga
+	
 	public void game(){
 		if(PlayerCount != 0){
 			int i = PlayerCount;

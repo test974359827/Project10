@@ -42,7 +42,10 @@ public abstract class Darts implements IDarts {
 	}
 
 	
-
+ // ehwruyweisur
+	
+	
+	
 	public boolean addPlayer(Player player){
 		for(int i = 0 ; i < PlayerCount ; i++){
 			if(Players[i] != null){ // Wenn i-te Element von Plasyers nicht leer ist, �berpr�ft ,ob Name der Spieler gleich mit eingegebenem Spieler ist oder nicht.

@@ -42,11 +42,8 @@ public abstract class Darts implements IDarts {
 	}
 
 	
-	//shayansfsd
-
-	// halr43  
-	//jhfhgf
-	
+	//asjkdhas
+	//sdsd
 	
 	public boolean addPlayer(Player player){
 		for(int i = 0 ; i < PlayerCount ; i++){

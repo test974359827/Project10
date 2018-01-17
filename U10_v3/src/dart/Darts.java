@@ -40,8 +40,14 @@ public abstract class Darts implements IDarts {
 			MyFrame.Win.error("ERROR : We need more player for game. Player Count = 0");
 		}
 	}
+<<<<<<< HEAD
 	// hallogfetr43
 	//shayans
+=======
+	// halr43
+	
+	
+>>>>>>> branch 'master' of https://github.com/test974359827/Project10.git
 	
 	public boolean addPlayer(Player player){
 		for(int i = 0 ; i < PlayerCount ; i++){

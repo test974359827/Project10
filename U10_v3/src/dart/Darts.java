@@ -27,7 +27,7 @@ public abstract class Darts implements IDarts {
 			while(i > 0){
 				String a = JOptionPane.showInputDialog("Geben Sie der Name des Spielers Nummer "+(PlayerCount - i+1)+" ein"); // bekommt ein Name des Spielers
 				Player player = new Player(a);
-				if(addPlayer(player)){ // Überprüft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nächste Spieler gefragt werden.
+				if(addPlayer(player)){ // ï¿½berprï¿½ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
 					i--;
 				}
 			}
@@ -40,14 +40,14 @@ public abstract class Darts implements IDarts {
 			MyFrame.Win.error("ERROR : We need more player for game. Player Count = 0");
 		}
 	}
-	//jj
+	// hallo
 	
 	
 	public boolean addPlayer(Player player){
 		for(int i = 0 ; i < PlayerCount ; i++){
-			if(Players[i] != null){ // Wenn i-te Element von Plasyers nicht leer ist, überprüft ,ob Name der Spieler gleich mit eingegebenem Spieler ist oder nicht.
+			if(Players[i] != null){ // Wenn i-te Element von Plasyers nicht leer ist, ï¿½berprï¿½ft ,ob Name der Spieler gleich mit eingegebenem Spieler ist oder nicht.
 				if(player.getName().equals(Players[i].getName())) // wenn Name 
-					return false;// wenn Namen gleich sind, gibt es false zurück, sonst überprüft nächste Element von Players
+					return false;// wenn Namen gleich sind, gibt es false zurï¿½ck, sonst ï¿½berprï¿½ft nï¿½chste Element von Players
 			} 
 			else{
 				Players[i] = player ; // Wenn i-te Eleemnt von Players null ist, setzt dieser Player an dieser Stelle ein.

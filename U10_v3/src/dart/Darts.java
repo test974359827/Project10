@@ -7,7 +7,7 @@ import UI.*;
 public abstract class Darts implements IDarts {
 	
 	private int ActivePlayerNumber = 0,PlayerCount = 0;
-	private int LeftDarts = 0 ; 
+	private int LeftDarts = 3 ; 
 	private Player[] Players ;
 	private String Gamemode = null;
 	private boolean Running = false, Over = false, start = false  ; 

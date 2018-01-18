@@ -41,6 +41,11 @@ import java.util.ArrayList;
 		return ThrowDartValue[i][j];
 	}
 
+	public void setThrowDartValueByIndex(int index,int[] TD){
+		ThrowDartValue[index][0]= TD[0];
+		ThrowDartValue[index][1]= TD[1];
+	}
+	
 	public void setThrowDartValue(int[] TD) {
 		int len;
 		if(ThrowDartValue == null)

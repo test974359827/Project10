@@ -125,6 +125,8 @@ public abstract class Darts implements IDarts {
 	}
 	
 	public void endGame(){
+		Over = true ; 
+		getWinner();
 		//TODO
 	}
 }

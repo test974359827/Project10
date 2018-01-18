@@ -42,7 +42,7 @@ public abstract class Darts implements IDarts {
 		}
 	}
 
-	public int[] input(Player player){
+	public int[] input(){
 	    int numb = Integer.parseInt(JOptionPane.showInputDialog("Number"));
 	    int mult = Integer.parseInt(JOptionPane.showInputDialog("mult"));
 	    ThrowDartValue[0]= numb;

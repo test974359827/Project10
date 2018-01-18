@@ -11,7 +11,7 @@ public abstract class Darts implements IDarts {
 	private Player[] Players ;
 	private String Gamemode = null;
 	private boolean Running = false, Over = false, start = false  ; 
-	private Player Winner ; 
+	private Player Winner = null; 
 	public int[] ThrowDartValue = new int[2];
 	
 	public Darts(String Gamemode,int PlayerCount){
@@ -64,6 +64,12 @@ public abstract class Darts implements IDarts {
 		return true;
 	}
 	
+	public void nextPlayer(){
+		ActivePlayerNumber ++ ;
+		if(getActivePlayerNumber() == getPlayerCount())
+			ActivePlayerNumber = 0 ; 
+	}
+		
 	public int getActivePlayerNumber(){
 		return ActivePlayerNumber;
 	}
@@ -81,7 +87,6 @@ public abstract class Darts implements IDarts {
 	}
 	
 	public int getLeftDarts(){
-		
 		return LeftDarts;
 	}
 	
@@ -99,17 +104,23 @@ public abstract class Darts implements IDarts {
 	}
 	
 	public Player getWinner(){
+		if(isOver())
+			Winner = Players[ActivePlayerNumber];
 		return Winner;
 	}
 	
 	public boolean throwDart(int number, int multiplier){
+		
+		
 		if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
 			int[] a = {number , multiplier};
 			Players[ActivePlayerNumber].setThrowDartValue(a);
+			LeftDarts ++;
 			return true;
 		}
 		int[] a = {0 , 0};
 		Players[ActivePlayerNumber].setThrowDartValue(a);
+		LeftDarts ++;
 		return false;
 	}
 	

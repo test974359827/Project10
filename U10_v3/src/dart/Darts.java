@@ -63,11 +63,11 @@ public abstract class Darts implements IDarts {
 		}
 		return true;
 	}
-	
 	public void nextPlayer(){
 		ActivePlayerNumber ++ ;
 		if(getActivePlayerNumber() == getPlayerCount())
 			ActivePlayerNumber = 0 ; 
+		LeftDarts = Players[ActivePlayerNumber].getThrowDartValue().length;
 	}
 		
 	public int getActivePlayerNumber(){
@@ -115,12 +115,10 @@ public abstract class Darts implements IDarts {
 		if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
 			int[] a = {number , multiplier};
 			Players[ActivePlayerNumber].setThrowDartValue(a);
-			LeftDarts = Players[0].getThrowDartValue().length;
 			return true;
 		}
 		int[] a = {0 , 0};
 		Players[ActivePlayerNumber].setThrowDartValue(a);
-		LeftDarts = Players[0].getThrowDartValue().length;
 		return false;
 	}
 	

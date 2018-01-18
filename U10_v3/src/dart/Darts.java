@@ -5,8 +5,8 @@ import javax.swing.JOptionPane;
 import UI.*;
 
 public abstract class Darts implements IDarts {
-	
-	private int ActivePlayerNumber = 0,PlayerCount = 0;
+	public int ActivePlayerNumber = 0;
+	private int PlayerCount = 0;
 	private int LeftDarts = 0 ; 
 	private Player[] Players ;
 	private String Gamemode = null;

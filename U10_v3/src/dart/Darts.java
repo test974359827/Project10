@@ -127,4 +127,8 @@ public abstract class Darts implements IDarts {
 		getWinner();
 		//TODO
 	}
+	
+	public Player getPlayerByIndex(int a ){
+		return Players[a];
+	}
 }

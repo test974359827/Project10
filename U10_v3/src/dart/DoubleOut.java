@@ -3,24 +3,21 @@ package dart;
 public class DoubleOut extends Darts{
 
 	
-	private int wp = 501 ; // Gewwinpunkte 
+	private int wp = 51 ; // Gewwinpunkte 
 	private int Point = 0 ;
 	
 	public DoubleOut(int PlayerCount){
 		super("Double Out",PlayerCount);
 		gameDoubleOut();
 	}
+	
 	public void Point(Player Player){
 		Point = 0 ;
 		int[][] PlayerPoint = Player.getThrowDartValue();
 		for(int i = 0 ; i < PlayerPoint.length ; i++)
 			Point = PlayerPoint[i][0] * PlayerPoint[i][1] + Point;
 	}
-	public boolean ObGewinnt(){
-		if (wp == Point)
-			return true;
-		return false;
-	}
+	
 	
 	public void gameDoubleOut(){
 		
@@ -52,11 +49,12 @@ public class DoubleOut extends Darts{
 					nextPlayer();
 				}
 					
-				if()
+				if(Point == wp)
 					endGame();
 			}
 			else if(getLeftDarts() == 0)
 				nextPlayer();
 		}
+		
 	}
 }

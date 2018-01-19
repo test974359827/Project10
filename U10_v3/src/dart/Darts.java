@@ -43,8 +43,8 @@ public abstract class Darts implements IDarts {
 	}
 
 	public int[] input(){
-	    int numb = Integer.parseInt(JOptionPane.showInputDialog("Number"));
-	    int mult = Integer.parseInt(JOptionPane.showInputDialog("mult"));
+	    int numb = Integer.parseInt(JOptionPane.showInputDialog("Number Dart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
+	    int mult = Integer.parseInt(JOptionPane.showInputDialog("multDart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
 	    ThrowDartValue[0]= numb;
 	    ThrowDartValue[1] = mult;
 	    return ThrowDartValue;    
@@ -110,8 +110,6 @@ public abstract class Darts implements IDarts {
 	}
 	
 	public boolean throwDart(int number, int multiplier){
-		
-		
 		if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
 			int[] a = {number , multiplier};
 			Players[ActivePlayerNumber].setThrowDartValue(a);
@@ -128,6 +126,8 @@ public abstract class Darts implements IDarts {
 		Over = true ; 
 		getWinner();
 		//TODO
+		MyFrame.Win.error(Winner.getName());
+
 	}
 	
 	public Player getPlayerByIndex(int a ){

@@ -124,7 +124,7 @@ public abstract class Darts implements IDarts {
 		int[] a = {0 , 0};
 		Players[ActivePlayerNumber].setThrowDartValue(a);
 		LeftDarts --;
-		Table.addPoint(ActivePlayerNumber, number * multiplier, Players[ActivePlayerNumber].getThrowDartValue().length);
+		Table.addPoint(ActivePlayerNumber, 0, Players[ActivePlayerNumber].getThrowDartValue().length);
 		return false;
 	}
 	

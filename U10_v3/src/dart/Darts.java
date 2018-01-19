@@ -107,6 +107,10 @@ public abstract class Darts implements IDarts {
 		return start;
 	}
 	
+	public void setActivePlayerNumber(int ActivePlayerNumber){
+		this.ActivePlayerNumber = ActivePlayerNumber;
+	}
+	
 	public Player getWinner(){
 		if(isOver())
 			Winner = Players[ActivePlayerNumber];

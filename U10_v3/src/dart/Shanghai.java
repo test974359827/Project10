@@ -47,6 +47,8 @@ public class Shanghai extends Darts{
 		whoIsWinner(getScore());
 	}
 	
+	
+	
 	public int[] getScore() {
 		Player[] ListOfPlayer = getPlayers();
 		for(int i = 0; i < getPlayerCount(); i++) {
@@ -71,6 +73,7 @@ public class Shanghai extends Darts{
 		
 	}
 	
+
 	
 	/**
 	 * Die Sonderregel, Das Shanghai

@@ -24,7 +24,7 @@ public class Tactics extends Darts{
 	//	    }
 	//	}
 	//	);
-		int PlayerPointMerge[][] = new int [22][1] ;
+		int PlayerPointMerge[][] = new int [22][2] ;
 		int wert=0;
 		for(int a=1; a<22; a++) {
 			wert=0;
@@ -40,7 +40,7 @@ public class Tactics extends Darts{
 				}
 			
 			}
-	for(int i= 9; i<= PlayerPointMerge.length; i++) {
+	for(int i= 9; i< PlayerPointMerge.length; i++) {
 			if(PlayerPointMerge[i][0]==i+1 
 					&& ((PlayerPointMerge[i][0])*(PlayerPointMerge[i][1])
 					> 3*(PlayerPointMerge[i][0]))) {

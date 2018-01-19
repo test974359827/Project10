@@ -14,7 +14,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -22,6 +24,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import dart.*;
+import javax.swing.JTable;
 
 public class MyFrame {
 
@@ -66,6 +69,7 @@ public class MyFrame {
 	 */
 	private void initialize() {
 		frmDart = new JFrame();
+		frmDart.setResizable(false);
 		frmDart.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Anzahl : ");
@@ -122,8 +126,12 @@ public class MyFrame {
 		lblError.setBounds(40, 110, 529, 39);
 		
 		frmDart.getContentPane().add(lblError);
+		
+		
+		
+		
 		frmDart.setTitle("Dart");
-		frmDart.setBounds(x, y, 630, 647);
+		frmDart.setBounds(x, y, 630, 176);
 		frmDart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	

@@ -10,7 +10,7 @@ public class DoubleOut extends Darts{
 		super("Double Out",PlayerCount);
 		gameDoubleOut();
 	}
-	
+//	
 	public void Point(Player Player){
 		Point = 0 ;
 		int[][] PlayerPoint = Player.getThrowDartValue();

@@ -24,25 +24,19 @@ public class Shanghai extends Darts{
 			
 			if(getLeftDarts() > 0){
 				int[] in = input();
-				
 				int round = 1;
-				if(player.getThrowDartValue() == null) {
+				if(player.getThrowDartValue() == null) 
 					round = 1;
-					
-				} else {
+				else 
 					round = (int)(player.getThrowDartValue().length / 3) + 1;
-					
-				}
+
 				throwDart(checkPlayerThrow(in[0], round), in[1]);
 			}
-			else if(getLeftDarts() == 0)
-				
-				if(specialCase(player)) {
-					
+			else if(getLeftDarts() == 0){
+				if(specialCase(player)) 
 					endGame();
-				} 
-			
 				nextPlayer();
+			}
 		}
 		whoIsWinner(getScore());
 	}
@@ -79,9 +73,9 @@ public class Shanghai extends Darts{
 	 * Die Sonderregel, Das Shanghai
 	 */
 	public boolean specialCase(Player player) {
-		int a3 = player.getThrowDartValueByIndex(player.getThrowDartValue().length, 1); // Multipikator 1  
-		int a2 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 1, 1); // Multipikator 2
-		int a1 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 2, 1); // Multipikator 3 
+		int a3 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 1, 1); // Multipikator 1  
+		int a2 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 2, 1); // Multipikator 2
+		int a1 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 3, 1); // Multipikator 3 
 		
 		if(a3 == 3 && a2 == 2 && a1 == 1) {		
 			return true;

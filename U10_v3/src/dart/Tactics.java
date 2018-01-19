@@ -10,7 +10,7 @@ public class Tactics extends Darts{
 			
 		}
 	public void Point(Player Player){
-		int[][] PlayerPoint = Player.getThrowDartValue();
+		PlayerPoint = Player.getThrowDartValue();
 	}
 	
 	public boolean gewonnen(){
@@ -28,7 +28,7 @@ public class Tactics extends Darts{
 		int wert=0;
 		for(int a=1; a<22; a++) {
 			wert=0;
-			for(int b=0; b<= PlayerPoint.length ; b++) {
+			for(int b=0; b< PlayerPoint.length ; b++) {
 				if(PlayerPoint[b][0]==a) {
 					wert= wert+PlayerPoint[b][1];
 					} if(PlayerPoint[b][0]==25){

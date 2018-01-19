@@ -36,6 +36,7 @@ public class Tactics extends Darts{
 				}
 					PlayerPointMerge[a][1]= wert;
 					PlayerPointMerge[a][0]= a;
+					
 				}
 			
 			}

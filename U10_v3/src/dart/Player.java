@@ -12,6 +12,7 @@ import java.util.ArrayList;
 	 * name of the player
 	 */
 	 private String name;
+
 	 
 	 //TODO
 	 private int[][] ThrowDartValue ;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 	 * @param playerName the name of the player
 	 */
 	 public Player(String playerName){
-	 name=playerName;
+		 name = playerName;
 	 }
 	
 	 /**
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 	 * @return the name of the player
 	 */
 	 public String getName(){
-	 return name;
+		 return name;
 	 }
 
 	public int[][] getThrowDartValue() {

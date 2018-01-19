@@ -66,7 +66,7 @@ public class Shanghai extends Darts{
 	
 	
 	/**
-	 * Die Sonderregel, Das Schanghai
+	 * Die Sonderregel, Das Schanghaisadasdsa
 	 */
 	public boolean specialCase(Player player) {
 		int a3 = player.getThrowDartValueByIndex(player.getThrowDartValue().length, 1); // Multipikator 1  

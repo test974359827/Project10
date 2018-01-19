@@ -59,10 +59,12 @@ public class Tactics extends Darts{
 				Point(player);
 				if(gewonnen()) {
 					endGame();
-				} else {
-					nextPlayer();
 				}
-		}
+			} 
+			else {
+				nextPlayer();
+			}
+		
 			
 		}		
 		}	

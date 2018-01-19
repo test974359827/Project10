@@ -32,7 +32,7 @@ import java.util.ArrayList;
 	 public String getName(){
 	 return name;
 	 }
-
+//
 	public int[][] getThrowDartValue() {
 		return ThrowDartValue;
 	}

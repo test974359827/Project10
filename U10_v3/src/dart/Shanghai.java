@@ -44,7 +44,7 @@ public class Shanghai extends Darts{
 			
 				nextPlayer();
 		}
-		
+		whoIsWinner(getScore());
 	}
 	
 	public int[] getScore() {
@@ -60,7 +60,14 @@ public class Shanghai extends Darts{
 		
 		return playerScores;
 	}
-	public void whoIsWinner() {
+	public void whoIsWinner(int [] ps) {
+		int temp = 0;
+		for(int i = 1; i < ps.length; i++) {
+			if(ps[temp] < ps[i]) {
+				temp = i;
+			}
+		}
+		setActivePlayerNumber(temp);
 		
 	}
 	

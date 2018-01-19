@@ -131,7 +131,7 @@ public class MyFrame {
 		
 		
 		frmDart.setTitle("Dart");
-		frmDart.setBounds(x, y, 630, 176);
+		frmDart.setBounds(x, y, 630, 209);
 		frmDart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -146,12 +146,14 @@ public class MyFrame {
 	            	label.setText("Please use only numbers");
 	                return;
 	       }
+			frmDart.setVisible(false);
 			if(rdbtnDoubleOut.isSelected())
 				 new DoubleOut(PlayerCount);
 			 if(rdbtnTaptic.isSelected())
 				 new Tactics(PlayerCount);
 			 if(rdbtnShanghai.isSelected())
 				 new Shanghai(PlayerCount);
+			 
 		}
 
 	

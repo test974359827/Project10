@@ -1,5 +1,6 @@
 package dart;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import UI.*;
@@ -13,6 +14,8 @@ public abstract class Darts implements IDarts {
 	private boolean Running = false, Over = false, start = false  ; 
 	private Player Winner = null; 
 	public int[] ThrowDartValue = new int[2];
+	public PointTable Table ;
+	
 	
 	public Darts(String Gamemode,int PlayerCount){
 		this.Gamemode = Gamemode ; 
@@ -34,6 +37,7 @@ public abstract class Darts implements IDarts {
 			}
 			start = true;
 			Running = true;
+			Table = new PointTable(Players);
 			}
 		
 		else{
@@ -114,11 +118,13 @@ public abstract class Darts implements IDarts {
 			int[] a = {number , multiplier};
 			Players[ActivePlayerNumber].setThrowDartValue(a);
 			LeftDarts --;
+			Table.addPoint(ActivePlayerNumber, number * multiplier, Players[ActivePlayerNumber].getThrowDartValue().length);
 			return true;
 		}
 		int[] a = {0 , 0};
 		Players[ActivePlayerNumber].setThrowDartValue(a);
 		LeftDarts --;
+		Table.addPoint(ActivePlayerNumber, number * multiplier, Players[ActivePlayerNumber].getThrowDartValue().length);
 		return false;
 	}
 	

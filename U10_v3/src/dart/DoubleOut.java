@@ -17,7 +17,7 @@ public class DoubleOut extends Darts{
 		for(int i = 0 ; i < PlayerPoint.length ; i++)
 			Point = PlayerPoint[i][0] * PlayerPoint[i][1] + Point;
 	}
-	
+//	
 	
 	public void gameDoubleOut(){
 		

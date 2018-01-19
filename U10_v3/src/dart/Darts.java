@@ -135,7 +135,7 @@ public abstract class Darts implements IDarts {
 		MyFrame.Win.error(Winner.getName());
 
 	}
-	
+//	
 	public Player getPlayerByIndex(int a ){
 		return Players[a];
 	}

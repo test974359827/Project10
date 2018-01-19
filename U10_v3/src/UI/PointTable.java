@@ -68,7 +68,7 @@ public class PointTable extends JFrame{
 			data = a ;
 			mod.addRow(data[DartNumber - 1]);
 		}
-		
+//		
 		
 		
 	}

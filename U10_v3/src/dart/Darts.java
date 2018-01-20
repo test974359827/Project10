@@ -57,7 +57,7 @@ public abstract class Darts implements IDarts {
 	 * @param PlayerCount
 	 	Anzahl der Spieler
 	 */
-	public Darts(String Gamemode,int PlayerCount){
+	public Darts(String Gamemode, int PlayerCount){
 		Object[] options1 = { "Ja","Nein"  };
 				 JPanel panel = new JPanel();
 			        panel.add(new JLabel("ist das JTest ?"));
@@ -84,31 +84,39 @@ public abstract class Darts implements IDarts {
 	 */
 	public boolean start(){ // TODO
 		//TODO
+		if(!Over) {
 		if(PlayerCount != 0){
 			if(!Test){
 				int i = PlayerCount;
 				while(i > 0){
+					if(!Over) {
 					String a = inBox("NAME","Geben Sie der Name des Spielers Nummer "+(PlayerCount - i+1)+" ein"); // bekommt ein Name des Spielers
 					Player player = new Player(a);
 					if(addPlayer(player)){ // Überprüft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
 						i--;
 					}
-				}
+				
 				start = true;
+				if(!Over)
 				Table = new PointTable(Players);
+					}
+				else 
+					break;
 				}
+			}
 			else{
 				int i = PlayerCount;
 				while(i > 0){
-					Player player = new Player("Spiler "+Integer.toString(PlayerCount - i+1));
+					Player player = new Player("Spieler " + Integer.toString(PlayerCount - i+1));
 					if(addPlayer(player)){ // Überprüft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
 						i--;
 					}
 				}
 				start = true;
 				Table = new PointTable(Players);
-			}
+			
 		}
+			}
 			
 		else{
 			start = false;
@@ -116,15 +124,17 @@ public abstract class Darts implements IDarts {
 		}
 		
 		
+		
+	}
 		return start;
 	}
-
 	
 	
 	/**
 	 * @see IDarts.addPlayer(player)
 	 */
 	public boolean addPlayer(Player player){ 
+		if(!Over) {
 		for(int i = 0 ; i < PlayerCount ; i++){
 			if(Players[i] != null){ // Wenn i-te Element von Plasyers nicht leer ist, ï¿½berprï¿½ft ,ob Name der Spieler gleich mit eingegebenem Spieler ist oder nicht.
 				if(player.getName().equals(Players[i].getName())) // wenn Name 
@@ -134,7 +144,7 @@ public abstract class Darts implements IDarts {
 				Players[i] = player ; // Wenn i-te Eleemnt von Players null ist, setzt dieser Player an dieser Stelle ein.
 				break;
 			}
-		}
+		}}
 		return true;
 	}
 	
@@ -178,6 +188,7 @@ public abstract class Darts implements IDarts {
 	 *	Reihe in der Tabelle
 	 */
 	public void addToTable(int ActivePlayerNumber , String point , int Row){
+		if(!Over)
 		Table.addPoint(ActivePlayerNumber, point , Row);
 	}
 	
@@ -295,7 +306,9 @@ public abstract class Darts implements IDarts {
 			MSG(" Winner is : " + Winner.getName() );
 		else 
 			MSG("Game is Over Without Winner");
+		if(Table != null)
 		Table.setVisible(true);
+		
 	}
 	
 	/**

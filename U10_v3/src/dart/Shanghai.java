@@ -47,8 +47,11 @@ public class Shanghai extends Darts{
 	 * 	 Basis Methode der Spielmodi Schangahi
 	 */
 	public void gameShanghai() {
-		
-		for(int i = 0; i < maxRoundNumber * 3 * getPlayers().length; i++){
+		int i=0;
+		while(!isOver()) {
+			
+			if(i <  maxRoundNumber * 3 * getPlayers().length)
+		{
 			Player player = getPlayerByIndex(getActivePlayerNumber()); // Player wird erstellt
 			
 			if(getLeftDarts() > 0){ // verbleibende Würfe
@@ -71,7 +74,8 @@ public class Shanghai extends Darts{
 			whoIsWinner(getScore()); // Die Punktzahl des Gewinners wird ausgegeben. 
 			setGameWinner(true); // Der Gewinner wird festgestellt
 			endGame(); // Hier wird das Spiel beendet
-			
+		}
+		i++;
 	}
 	
 	

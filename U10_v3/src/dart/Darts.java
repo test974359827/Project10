@@ -90,7 +90,7 @@ public abstract class Darts implements IDarts {
 				while(i > 0){
 					String a = inBox("NAME","Geben Sie der Name des Spielers Nummer "+(PlayerCount - i+1)+" ein"); // bekommt ein Name des Spielers
 					Player player = new Player(a);
-					if(addPlayer(player)){ // ï¿½berprï¿½ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
+					if(addPlayer(player)){ // Überprüft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
 						i--;
 					}
 				}
@@ -101,7 +101,7 @@ public abstract class Darts implements IDarts {
 				int i = PlayerCount;
 				while(i > 0){
 					Player player = new Player("Spiler "+Integer.toString(PlayerCount - i+1));
-					if(addPlayer(player)){ // ï¿½berprï¿½ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
+					if(addPlayer(player)){ // Überprüft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
 						i--;
 					}
 				}

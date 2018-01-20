@@ -1,12 +1,8 @@
 package tests;
 
 import static org.junit.Assert.*;
-
-import java.lang.reflect.GenericArrayType;
-
 import org.junit.Test;
-
-import dart.DoubleOut;
+import dart.*;
 
 /**
  * 
@@ -51,26 +47,6 @@ public class DoubleOutTest {
 	 assertEquals(true,Shayan.obgewinnt());
  }
  
- @Test
- public void PlayerTest(){
 
-	 
-	 Shayan.throwDart(10, 1);
-//	 assertEquals(10,Shayan.getPlayerByIndex(0).getThrowDartValueByIndex(0, 0));
-//	 assertEquals(1,Shayan.getPlayerByIndex(0).getThrowDartValueByIndex(0, 1));
- }
-// 
-// @Test
-// public void DartsTestThrowDart(){
-//	 
-//	 assertEquals(2,Shayan.getPlayerCount());
-//	 assertEquals("Double Out",Shayan.getGamemode());
-//	 assertEquals("Spiler 1",Shayan.getPlayerByIndex(0).getName());
-//	 assertEquals("Spiler 2",Shayan.getPlayerByIndex(1).getName());
-//	 
-//	 Shayan.throwDart(10, 1);
-//	 assertEquals(10,Shayan.getPlayerByIndex(0).getThrowDartValueByIndex(0, 0));
-//	 System.out.println(Shayan.getActivePlayerNumber());
-// }
-//	
+	
 }

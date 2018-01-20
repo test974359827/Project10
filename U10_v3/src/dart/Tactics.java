@@ -13,8 +13,8 @@ public class Tactics extends Darts{
 	public Tactics(int PlayerCount){
 		
 			super("Tactics",PlayerCount); //
-			gameTactics();
-			
+			if(! getTest()) gameTactics();
+		
 		}
 	/**
 	 * die Punkte von Player wird mithilfe von Klasse Player in Array gespeichert.

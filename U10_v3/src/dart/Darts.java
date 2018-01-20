@@ -18,7 +18,7 @@ public abstract class Darts implements IDarts {
 	 */
 	private int LeftDarts = 3 ; 
 	/**
-	 * Players= Ein Array, das alle Spieler enthält.
+	 * Players = Ein Array, das alle Spieler enthält.
 	 */
 	private Player[] Players ;
 	/**
@@ -43,9 +43,7 @@ public abstract class Darts implements IDarts {
 	 * Table= Die Tabelle, in der die Ergebnisse angezeigt werden.
 	 */
 	public PointTable Table ;
-	/**
-	 * 
-	 */
+
 	private boolean Test = false; // Gibt true züruck, falls nur Tests durchzuführen sind, ansonten false, when das Spiel durchzuführen ist.
 	
 	private boolean GameWinner = false; // Gibt true zuürck, falls das Spiel ein Gewinner hat und false, falls kein Gewinner. 
@@ -61,7 +59,7 @@ public abstract class Darts implements IDarts {
 		
 		
 		// InputFrame für JTest oder Normal
-		Object[] options1 = { "Ja","Nein"  };
+		Object[] options1 = { "Ja","Nein" }; // Fragt, ob das Spiel gestartet werden muss oder jTest.
 				 JPanel panel = new JPanel();
 			        panel.add(new JLabel("ist das JTest ?"));
 			        
@@ -78,6 +76,10 @@ public abstract class Darts implements IDarts {
 		Players = new Player[PlayerCount];
 		
 		// 
+		
+	/**
+	 * Wenn die Variable start true ist, dann wird das Spiel gestartet. 
+	 */
 		if(start())
 			Running = true;
 	}
@@ -87,27 +89,27 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.start()
 	 */
-	public boolean start(){ // TODO
-		//TODO
+	public boolean start(){ 
 		if(!Over) {
 		if(PlayerCount != 0){
 			if(!Test){
-				int i = PlayerCount;
-				while(i > 0){
-					if(!Over) {
+				int i = PlayerCount; // Anzahl der Spieler
+				while(i > 0){ // Solange Anzahl der Spieler nicht 0 ist werden Spieler hinzugefügt.
+					if(!Over) { // Wenn das Spiel nicht zu Ende ist.
 					String a = inBox("NAME","Geben Sie der Name des Spielers Nummer "+(PlayerCount - i+1)+" ein"); // bekommt ein Name des Spielers
 					Player player = new Player(a);
 					if(addPlayer(player)){ // Überprüft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss nï¿½chste Spieler gefragt werden.
 						i--;
 					}
 				
-				start = true;
+				start = true; // Das Spiel beginnt.
 				if(!Over)
 				Table = new PointTable(Players);
 					}
 				else 
 					break;
 				}
+				
 			}
 			else{
 				int i = PlayerCount;
@@ -125,9 +127,8 @@ public abstract class Darts implements IDarts {
 			
 		else{
 			start = false;
-			MSG("ERROR : We need more player for game. Player Count = 0");
-		}
-		
+			MSG("ERROR : We need more player for game. Player Count = 0"); // Wenn die Anzahl der Spieler 0 ist, dann taucht dieser Fehler auf. 
+		}	
 		
 		
 	}
@@ -166,14 +167,15 @@ public abstract class Darts implements IDarts {
 	 */
 	public boolean throwDart(int number, int multiplier){ 
 		if(!Over){
+			// Bedingungen des Dartspiels 
 			if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
-				int[] a = {number , multiplier};
+				int[] a = {number , multiplier}; // Ein Array, in dem die Feldnummer und Multipikator gespeichert wird.
 				Players[ActivePlayerNumber].setThrowDartValue(a);
 				LeftDarts --;
-				addToTable(ActivePlayerNumber, Integer.toString(number) +" * "+Integer.toString(multiplier) , Players[ActivePlayerNumber].getThrowDartValue().length);
+				addToTable(ActivePlayerNumber, Integer.toString(number) +" * "+Integer.toString(multiplier) , Players[ActivePlayerNumber].getThrowDartValue().length); // Die Eingaben werden in der Tabelle gespeichert und angezeigt.
 				return true;
 			}
-			int[] a = {0 , 0};
+			int[] a = {0 , 0}; // Wenn die Bedingungen des Spiels Dart nicht erfüllt sind wird auf 0 gesetzt. 
 			Players[ActivePlayerNumber].setThrowDartValue(a);
 			LeftDarts --;
 			addToTable(ActivePlayerNumber, "0 * 0", Players[ActivePlayerNumber].getThrowDartValue().length);
@@ -215,7 +217,7 @@ public abstract class Darts implements IDarts {
 	 * 		Gibt die Eingabe zurück
 	 */
 	public int[] input(){
-		
+		// Hier wird die  Nummer eingegeben.
 		String num = inBox("Number","Number Dart " + Integer.toString(4 - LeftDarts) +
 				" von " + Players[ActivePlayerNumber].getName()  );
 		try{
@@ -226,6 +228,7 @@ public abstract class Darts implements IDarts {
 				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
 			ThrowDartValue[0] = 0 ;
 		}
+		// Hier wird der Multipikator eingegeben. 
 		if(!Over){
 		String mul = inBox("Multi","multDart " + Integer.toString(4 - LeftDarts) + 
 				" von " + Players[ActivePlayerNumber].getName()  );

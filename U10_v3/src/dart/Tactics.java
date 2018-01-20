@@ -20,8 +20,8 @@ public class Tactics extends Darts{
 	 * die Punkte von Player wird mithilfe von Klasse Player in Array gespeichert.
 	 * @param Player 
 	 */
-	public void Point(Player Player){
-		PlayerPoint = Player.getThrowDartValue();
+	public void Point(){
+		PlayerPoint = getPlayerByIndex(getActivePlayerNumber()).getThrowDartValue();
 	}
 	
 	/**
@@ -69,11 +69,10 @@ public class Tactics extends Darts{
  */
 	public void gameTactics() {
 		while(! isOver()){
-			Player player = getPlayerByIndex(getActivePlayerNumber());
 			if(getLeftDarts() > 0){ // so lange der Player Darts übrig hat, kann er weiterspielen
 				int[] in = input();
 				throwDart(in[0],in[1]);
-				Point(player);
+				Point();
 				if(gewonnen()) { // wenn Player gewonnen hat dann endGame.
 					setGameWinner(true);
 					endGame();

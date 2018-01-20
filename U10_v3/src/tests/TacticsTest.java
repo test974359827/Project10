@@ -24,9 +24,6 @@ public class TacticsTest {
 		assertEquals(2,Mo.getPlayerCount());
 		assertEquals("Tactics",Mo.getGamemode());
 	
-	
-		 
-		 
 		 Mo.throwDart(1, 2);
 		 Mo.throwDart(11, 3);
 		 Mo.throwDart(12, 2);
@@ -49,9 +46,6 @@ public class TacticsTest {
 		 Mo.throwDart(13, 3);
 		 Mo.throwDart(15, 1);
 		 Mo.throwDart(15, 2);
-		 
-		 Mo.Point(null);
-		
 		 
 		 
 		 

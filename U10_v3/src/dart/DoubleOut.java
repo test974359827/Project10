@@ -46,6 +46,7 @@ public class DoubleOut extends Darts{
 			Point = PlayerPoint[i][0] * PlayerPoint[i][1] + Point; 
 	}
 
+	
 	/**
 	 * gameDoubleOut : hier wird das Spiel durchgeführt
 	 * 
@@ -58,7 +59,8 @@ public class DoubleOut extends Darts{
 			Player player = getPlayerByIndex(getActivePlayerNumber());
 			if(getLeftDarts() > 0){ 
 				int[] in = input();
-				throwDart(in[0],in[1]);
+				if(!throwDart(in[0],in[1]))
+					break;
 				Point(player);
 				if(Point > wp){
 					Sonder();
@@ -94,27 +96,27 @@ public class DoubleOut extends Darts{
 		switch (getLeftDarts()){
 		case 2 : 
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 1 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			player.setThrowDartValue(TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			player.setThrowDartValue(TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			break;
 		case 1 : 
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 2 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length-1);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length-1);
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 1 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			player.setThrowDartValue(TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			break;
 		case 0 : 
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 3 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length-2);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length-2);
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 2 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length-1);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length-1);
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 1 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			break;
 		}
 	}

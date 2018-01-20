@@ -70,6 +70,11 @@ public class MyFrame {
 	 */
 	private void initialize() {
 		frmDart = new JFrame();
+		frmDart.getContentPane().addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent arg0) {
+			}
+		});
 		frmDart.setResizable(false);
 		frmDart.getContentPane().setLayout(null);
 		

@@ -37,7 +37,10 @@ public class PointTable extends JFrame{
 		
 	}
 	
-	public void addPoint(int ActivePlayerNumber, int Point , int DartNumber){
+	
+
+	
+	public void addPoint(int ActivePlayerNumber, String Point , int DartNumber){
 		if(data != null){
 			if(data.length < DartNumber){
 				Object[][] a = new Object[DartNumber][columns.length];

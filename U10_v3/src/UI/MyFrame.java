@@ -144,7 +144,7 @@ public class MyFrame {
 	       }
 			frmDart.setVisible(false);
 			if(rdbtnDoubleOut.isSelected())
-				 new DoubleOut(PlayerCount);
+				 new DoubleOut(PlayerCount,501);
 			 if(rdbtnTaptic.isSelected())
 				 new Tactics(PlayerCount);
 			 if(rdbtnShanghai.isSelected())

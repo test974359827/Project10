@@ -1,5 +1,7 @@
 package dart;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 public class Tactics extends Darts{
 	
 	
@@ -67,15 +69,20 @@ public class Tactics extends Darts{
 		int[][] temp = PlayerPointMerge;
 		 for(int i = 1 ; i < temp.length ; i++)
 			 System.out.println(Integer.toString(temp[i][0]) + " "+Integer.toString(temp[i][1]) );
-	for(int i= 9; i< PlayerPointMerge.length; i++) { // entscheidet ob der Spieler gewonnen hat.
+		 
+		 
+		 int t = 0;
+	for(int i= 10; i< PlayerPointMerge.length; i++) { // entscheidet ob der Spieler gewonnen hat.
 			// wenn Player alle Zahlen von 10 bis 20 und 25 dreimal getroffen hat dann hat er gewonnen.
-		if(PlayerPointMerge[i][0]==i+1 
-					&& ((PlayerPointMerge[i][0])*(PlayerPointMerge[i][1])
-					> 3*(PlayerPointMerge[i][0]))) {
-				return true;	
-			}
-		}
-				return false;	
+		
+		if(PlayerPointMerge[i][1] >= 3) 
+			t++;
+					
+	}
+	System.out.println(t);
+	if(t == 12){
+		return true;}
+	return false;	
 	}
 /**
  * hier wird game Tactics gespielt.

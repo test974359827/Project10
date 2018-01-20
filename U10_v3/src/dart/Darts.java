@@ -78,7 +78,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.start()
 	 */
-	public boolean start(){ // TODO
+	public boolean start(){ //  
 		//TODO
 		if(PlayerCount != 0){
 			if(!Test){
@@ -192,7 +192,7 @@ public abstract class Darts implements IDarts {
 		}
 		catch(Exception e){
 			if(!Over)
-				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
+				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewï¿½hlt");
 			ThrowDartValue[0] = 0 ;
 		}
 		if(!Over){
@@ -202,7 +202,7 @@ public abstract class Darts implements IDarts {
 			ThrowDartValue[1] =Integer.parseInt(mul);
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
+			JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewï¿½hlt");
 			ThrowDartValue[1] = 0 ;
 		}}
 	    return ThrowDartValue;    

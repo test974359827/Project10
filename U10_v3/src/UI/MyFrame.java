@@ -18,6 +18,9 @@ import dart.*;
 
 public class MyFrame {
 
+	/**
+	 * Alle Spielmodi werden angezeigt und durch die Rardiobuttons kann man den gewünschten Speilmodus auswählen. 
+	 */
 	private JFrame frmDart;
 	private JTextField txtAnzahl;
 	JRadioButton rdbtnDoubleOut = new JRadioButton("Double Out");
@@ -26,7 +29,6 @@ public class MyFrame {
 	JLabel label = new JLabel("");
 	private final JLabel lblError = new JLabel("");
 	public static MyFrame Win ;
-
 
 
 	/**
@@ -51,6 +53,11 @@ public class MyFrame {
 	 * Create the application.
 	 * @wbp.parser.entryPoint
 	 */
+	
+	/** 
+	 * MyFrame wird inistaliziert.
+	 */
+	
 	public MyFrame() {
 		initialize();
 	}
@@ -68,11 +75,11 @@ public class MyFrame {
 		frmDart.setResizable(false);
 		frmDart.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Anzahl : ");
+		JLabel lblNewLabel = new JLabel("Anzahl : "); // Anzahl der Spieler wird hier eingegeben. 
 		lblNewLabel.setBounds(40, 35, 69, 20);
 		frmDart.getContentPane().add(lblNewLabel);
 		
-		JLabel lblMode = new JLabel("Mode : ");
+		JLabel lblMode = new JLabel("Mode : "); // Der Spielmodus wird ausgewählt. 
 		lblMode.setBounds(50, 71, 69, 20);
 		frmDart.getContentPane().add(lblMode);
 		
@@ -89,14 +96,17 @@ public class MyFrame {
 		
 		rdbtnDoubleOut.setBounds(124, 67, 113, 29);
 		rdbtnDoubleOut.setSelected(true);
-		frmDart.getContentPane().add(rdbtnDoubleOut);
+		frmDart.getContentPane().add(rdbtnDoubleOut); // Spielmodus DoubleOut
 		
 		rdbtnTaptic.setBounds(247, 67, 81, 29);
-		frmDart.getContentPane().add(rdbtnTaptic);
+		frmDart.getContentPane().add(rdbtnTaptic); // Spielmodus Tactics
 		
 		rdbtnShanghai.setBounds(335, 67, 104, 29);
-		frmDart.getContentPane().add(rdbtnShanghai);
+		frmDart.getContentPane().add(rdbtnShanghai); // Spielmodus Shanghai
 		
+		/**
+		 * Radiobuttons der verschiedenen Spielmodi
+		 */
 		ButtonGroup BTG = new ButtonGroup();
 		BTG.add(rdbtnShanghai);
 		BTG.add(rdbtnTaptic);
@@ -122,16 +132,14 @@ public class MyFrame {
 		lblError.setBounds(40, 110, 529, 39);
 		
 		frmDart.getContentPane().add(lblError);
-		
-		
-		
-		
 		frmDart.setTitle("Dart");
 		frmDart.setBounds(x + 100, y + 100, 630, 209);
 		frmDart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	
+	/** 
+	 * Start wird aufgerufen und anschließend wird das Spiel gestartet. 
+	 */
 	public void start(){
 		if(lblError.getText() != null) lblError.setText("");
 			int PlayerCount;
@@ -139,21 +147,24 @@ public class MyFrame {
 				PlayerCount = Integer.parseInt(txtAnzahl.getText());
 	             if(label.getText() != null) label.setText("");
 	            } catch (Exception z) { 
-	            	label.setText("Please use only numbers");
+	            	label.setText("Please use only numbers"); // Wenn keine Nummer oder Buchstaben für die Anzahl der Spieler eingegeben wird taucht dieser Fehler auf. 
 	                return;
 	       }
+			
 			frmDart.setVisible(false);
+			/** 
+			 * Hier wird der ausgewählte Spielmodus aufgerufen und gestartet. 
+			 */
 			if(rdbtnDoubleOut.isSelected())
 				 new DoubleOut(PlayerCount);
 			 if(rdbtnTaptic.isSelected())
 				 new Tactics(PlayerCount);
 			 if(rdbtnShanghai.isSelected())
 				 new Shanghai(PlayerCount);
-			 
 		}
 
 	
-	
+	// Wenn ein Fehler aufzutauchen ist, dann wird diese Methode aufgerufen.
 	public void error(String a){
 		frmDart.setVisible(true);
 		lblError.setText(a);

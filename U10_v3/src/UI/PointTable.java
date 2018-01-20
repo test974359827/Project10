@@ -13,7 +13,7 @@ import dart.*;
 public class PointTable extends JFrame{
 	
 	/**
-	 * 
+	 * Hier wird die Tabelle erstellt, in der alle Ergebnisse und Eingaben angezeigt werden. 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Object[][] data = null;
@@ -21,10 +21,15 @@ public class PointTable extends JFrame{
 	DefaultTableModel mod ;
 	JTable table ;
 	
+	/**
+	 * Eigenschaften der Tabelle werden hier festgestellt und die Tabelle wird erstellt.
+	 * @param player
+	 * 		Der Spieler 
+	 */
 	public PointTable(Player[] player) {
 
 		//headers for the table
-		columns = new String[player.length];
+		columns = new String[player.length]; // 
 		for(int i = 0 ; i < player.length ; i++)
 			columns[i]=player[i].getName();
 		
@@ -42,10 +47,16 @@ public class PointTable extends JFrame{
         this.setVisible(true);
 		
 	}
-	
-	
-
-	
+		
+	/**
+	 * Diese Methode fügt die Punkte der jeweiligen Spieler zur Tabelle hinzu. 
+	 * @param ActivePlayerNumber 
+	 * 		Der Spieler, der gerade am Spielen ist.
+	 * @param Point
+	 * 		Die erreichten Punktzahl
+	 * @param DartNumber
+	 * 		Wurfnummer
+	 */
 	public void addPoint(int ActivePlayerNumber, String Point , int DartNumber){
 		if(data != null){
 			if(data.length < DartNumber){

@@ -216,19 +216,16 @@ public abstract class Darts implements IDarts {
 
 	
 	/**
+	 * //TODO
 	 * 
-	 * @param ActivePlayerNumber
 	 */
-	public void setActivePlayerNumber(int ActivePlayerNumbe){
-		ActivePlayerNumber = ActivePlayerNumbe;
+	public void setActivePlayerNumber(int ActivePlayernumber){
+		ActivePlayerNumber = ActivePlayernumber;
 	}
 	
 	
-	
-	
-	
 	/**
-	 * 
+	 * //TODO
 	 * @param a
 	 * @return
 	 */

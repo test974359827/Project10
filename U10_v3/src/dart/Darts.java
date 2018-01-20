@@ -219,8 +219,8 @@ public abstract class Darts implements IDarts {
 	 * 
 	 * @param ActivePlayerNumber
 	 */
-	public void setActivePlayerNumber(int ActivePlayerNumber){
-		this.ActivePlayerNumber = ActivePlayerNumber;
+	public void setActivePlayerNumber(int ActivePlayerNumbe){
+		ActivePlayerNumber = ActivePlayerNumbe;
 	}
 	
 	

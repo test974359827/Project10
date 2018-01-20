@@ -75,7 +75,7 @@ public class Tactics extends Darts{
 				throwDart(in[0],in[1]);
 				Point(player);
 				if(gewonnen()) { // wenn Player gewonnen hat dann endGame.
-			//		setGameWinner(true);
+					setGameWinner(true);
 					endGame();
 				}
 			} 

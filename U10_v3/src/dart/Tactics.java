@@ -6,8 +6,8 @@ public class Tactics extends Darts{
 	int[][] PlayerPoint; // die Punkte von Player wird hier gespeichert.
 	
 /**
- * Hier wird mithilfe von PlayerCount gameTactics gespielt.
- * @param PlayerCount : Nummer von Player
+ * Hier wird mithilfe von PlayerCount Tactics gespielt.
+ * @param PlayerCount : Anzahl alle Players
  */
 	
 	public Tactics(int PlayerCount){
@@ -32,18 +32,12 @@ public class Tactics extends Darts{
 	public boolean gewonnen(){
 		
 		
-	//	Arrays.sort(PlayerPoint, new Comparator<Integer[]>() {
-	//	    public int compare(Integer[] int1, Integer[] int2) {
-	//	        Integer numOfKeys1 = int1[0];
-	//	        Integer numOfKeys2 = int2[0];
-	//	        return numOfKeys1.compareTo(numOfKeys2);
-	//	    }
-	//	}
-	//	);
+
 		int PlayerPointMerge[][] = new int [22][2] ; 
 		
-	// hier wird die gleiche von Array PlayerPoint in einem Array gemerged.
-		// hier wird die Algorithmus von Merge geschrieben.
+	// Hier wird die gleiche werte von Array PlayerPoint in einem anderen Array gemerged.
+	// Z.B.: 18 (Nummer)& 2(	Multiplikator) ,18 (Nummer)& 1(Multiplikator) => 18 (Nummer)& 3(Multiplikator)
+	// Algorithmus von Merge:
 		int wert=0;
 		for(int a=1; a<22; a++) {
 			wert=0;
@@ -54,14 +48,13 @@ public class Tactics extends Darts{
 						wert= wert+PlayerPoint[b][1];	
 				}
 					PlayerPointMerge[a][1]= wert; // Multiplikator von der Zahl
-					PlayerPointMerge[a][0]= a;    // wie viel der Player getroffen hat
-					
-					
+					PlayerPointMerge[a][0]= a;    // welche Nummer der Player getroffen hat
+				
 				}
 			
 			}
-	for(int i= 9; i< PlayerPointMerge.length; i++) { // entscheidet ob Player gewonnen hat.
-			// wenn Player alle Zahlen von 10 bis 20 und 25 dreimal getroffen hat.
+	for(int i= 9; i< PlayerPointMerge.length; i++) { // entscheidet ob der Spieler gewonnen hat.
+			// wenn Player alle Zahlen von 10 bis 20 und 25 dreimal getroffen hat dann hat er gewonnen.
 		if(PlayerPointMerge[i][0]==i+1 
 					&& ((PlayerPointMerge[i][0])*(PlayerPointMerge[i][1])
 					> 3*(PlayerPointMerge[i][0]))) {
@@ -77,7 +70,7 @@ public class Tactics extends Darts{
 	public void gameTactics() {
 		while(! isOver()){
 			Player player = getPlayerByIndex(getActivePlayerNumber());
-			if(getLeftDarts() > 0){ // so lange der Player Darts ubrig hat, kann er weiterspielen
+			if(getLeftDarts() > 0){ // so lange der Player Darts übrig hat, kann er weiterspielen
 				int[] in = input();
 				throwDart(in[0],in[1]);
 				Point(player);

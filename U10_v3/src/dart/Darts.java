@@ -1,6 +1,5 @@
 package dart;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import UI.*;
@@ -56,7 +55,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.start()
 	 */
-	public boolean start(){
+	public boolean start(){ // TODO
 		//TODO
 		if(PlayerCount != 0){
 			int i = PlayerCount;
@@ -83,7 +82,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.addPlayer(player)
 	 */
-	public boolean addPlayer(Player player){
+	public boolean addPlayer(Player player){ 
 		for(int i = 0 ; i < PlayerCount ; i++){
 			if(Players[i] != null){ // Wenn i-te Element von Plasyers nicht leer ist, �berpr�ft ,ob Name der Spieler gleich mit eingegebenem Spieler ist oder nicht.
 				if(player.getName().equals(Players[i].getName())) // wenn Name 
@@ -98,9 +97,9 @@ public abstract class Darts implements IDarts {
 	}
 	
 	/**
-	 * @see IDarts.
+	 * @see IDarts.throwDart(number,multiplier)
 	 */
-	public boolean throwDart(int number, int multiplier){
+	public boolean throwDart(int number, int multiplier){ // TODO
 		if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
 			int[] a = {number , multiplier};
 			Players[ActivePlayerNumber].setThrowDartValue(a);
@@ -122,7 +121,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.nextPlayer()
 	 */
-	public void nextPlayer(){
+	public void nextPlayer(){// TODO
 		ActivePlayerNumber ++ ;
 		if(getActivePlayerNumber() == getPlayerCount())
 			ActivePlayerNumber = 0 ; 
@@ -134,7 +133,7 @@ public abstract class Darts implements IDarts {
 	 * 
 	 * @return
 	 */
-	public int[] input(){
+	public int[] input(){// TODO
 		
 	    int numb = Integer.parseInt(JOptionPane.showInputDialog("Number Dart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
 	    int mult = Integer.parseInt(JOptionPane.showInputDialog("multDart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
@@ -145,20 +144,23 @@ public abstract class Darts implements IDarts {
 	
 	
 	/**
-	 * @see IDarts.
+	 * @see IDarts.endGame()
 	 */
-	public void endGame(){
+	public void endGame(){// TODO
 		Over = true ; 
 		getWinner();
-		//TODO
-		MyFrame.Win.error(Winner.getName());
+		//TODO SHAYAN 
+		if(Winner != null)
+			MyFrame.Win.error(Winner.getName());
+		else 
+			MyFrame.Win.error("Es gibt kein Winner bis jetzt");
 
 	}
 	
 	/**
-	 * @see IDarts.
+	 * @see IDarts.getWinner()
 	 */
-	public Player getWinner(){
+	public Player getWinner(){ // TODO
 		if(isOver())
 			Winner = Players[ActivePlayerNumber];
 		return Winner;
@@ -166,7 +168,7 @@ public abstract class Darts implements IDarts {
 	
 	
 	/**
-	 * @see IDarts.
+	 * @see IDarts.getActivePlayerNumber()
 	 */
 	public int getActivePlayerNumber(){
 		return ActivePlayerNumber;

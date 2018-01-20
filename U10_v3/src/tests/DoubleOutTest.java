@@ -10,7 +10,7 @@ import dart.*;
  *
  */
 public class DoubleOutTest {
-	DoubleOut Shayan = new DoubleOut(2);
+	DoubleOut Shayan = new DoubleOut(2,501);
 	
  @Test
  public void GameStarting(){
@@ -27,7 +27,7 @@ public class DoubleOutTest {
 	 int[] ps =new int[2];
 	 ps = Shayan.getScore();
 	 assertEquals(471,ps[0]);
-	 assertEquals(501,ps[1]);
+	 assertEquals(51,ps[1]);
 	 Shayan.nextPlayer();
 	 Shayan.throwDart(1, 1);
 	 Shayan.throwDart(25, 2);

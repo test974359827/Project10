@@ -14,15 +14,15 @@ public abstract class Darts implements IDarts {
 	 */
 	private int ActivePlayerNumber = 0,PlayerCount = 0;
 	/**
-	 * LeftDarts= Anzahl der Darts der Player noch hat.
+	 * LeftDarts= Anzahl von Darts der Player noch Ã¼brig hat.
 	 */
 	private int LeftDarts = 3 ; 
 	/**
-	 * Players= mit eigenschaft von klasse Player
+	 * Players= Player mit eigenschaft von klasse Player
 	 */
 	private Player[] Players ;
 	/**
-	 * Gamemode= welche Gamemode momentan wir drin sind.
+	 * Gamemode= die Gamemode, die wir momentan  drin sind.
 	 */
 	private String Gamemode = null;
 	/**
@@ -30,11 +30,11 @@ public abstract class Darts implements IDarts {
 	 */
 	private boolean Running = false, Over = false, start = false  ; 
 	/**
-	 * Winner= welche Player gewonnen hat.
+	 * Winner= der Player, der gewonnen hat.
 	 */
 	private Player Winner = null; 
 	/**
-	 * ThrowDartValue= welche Nummer der Player getroffen hat.
+	 * ThrowDartValue= die Nummer, die der Player getroffen hat.
 	 */
 	public int[] ThrowDartValue = new int[2];
 	/**
@@ -196,7 +196,7 @@ public abstract class Darts implements IDarts {
 		}
 		catch(Exception e){
 			if(!Over)
-				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
+				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewï¿½hlt");
 			ThrowDartValue[0] = 0 ;
 		}
 		if(!Over){
@@ -206,7 +206,7 @@ public abstract class Darts implements IDarts {
 			ThrowDartValue[1] =Integer.parseInt(mul);
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
+			JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewï¿½hlt");
 			ThrowDartValue[1] = 0 ;
 		}}
 	    return ThrowDartValue;    

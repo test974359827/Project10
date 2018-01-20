@@ -7,39 +7,39 @@ import UI.*;
 
 public abstract class Darts implements IDarts {
 	/**
-	 * 
+	 * //TODO
 	 */
 	private int ActivePlayerNumber = 0,PlayerCount = 0;
 	/**
-	 * 
+	 * //TODO
 	 */
 	private int LeftDarts = 3 ; 
 	/**
-	 * 
+	 * //TODO
 	 */
 	private Player[] Players ;
 	/**
-	 * 
+	 * //TODO
 	 */
 	private String Gamemode = null;
 	/**
-	 * 
+	 * //TODO
 	 */
 	private boolean Running = false, Over = false, start = false  ; 
 	/**
-	 * 
+	 * //TODO
 	 */
 	private Player Winner = null; 
 	/**
-	 * 
+	 * //TODO
 	 */
 	public int[] ThrowDartValue = new int[2];
 	/**
-	 * 
+	 * //TODO
 	 */
 	public PointTable Table ;
 	/**
-	 * 
+	 * Konstruktor
 	 * @param Gamemode
 	 * @param PlayerCount
 	 */
@@ -47,13 +47,17 @@ public abstract class Darts implements IDarts {
 		this.Gamemode = Gamemode ; 
 		this.PlayerCount = PlayerCount;
 		Players = new Player[PlayerCount];
-		game();
+		if(start())
+			Running = true;
 	}
-
+	
+	
+	
 	/**
-	 * 
+	 * @see IDarts.start()
 	 */
-	public void game(){
+	public boolean start(){
+		//TODO
 		if(PlayerCount != 0){
 			int i = PlayerCount;
 			while(i > 0){
@@ -64,7 +68,6 @@ public abstract class Darts implements IDarts {
 				}
 			}
 			start = true;
-			Running = true;
 			Table = new PointTable(Players);
 			}
 		
@@ -72,21 +75,13 @@ public abstract class Darts implements IDarts {
 			start = false;
 			MyFrame.Win.error("ERROR : We need more player for game. Player Count = 0");
 		}
+		return start;
 	}
+
+	
+	
 	/**
-	 * 
-	 * @return
-	 */
-	public int[] input(){
-		
-	    int numb = Integer.parseInt(JOptionPane.showInputDialog("Number Dart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
-	    int mult = Integer.parseInt(JOptionPane.showInputDialog("multDart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
-	    ThrowDartValue[0]= numb;
-	    ThrowDartValue[1] = mult;
-	    return ThrowDartValue;    
-	  }
-	/**
-	 * 
+	 * @see IDarts.addPlayer(player)
 	 */
 	public boolean addPlayer(Player player){
 		for(int i = 0 ; i < PlayerCount ; i++){
@@ -101,82 +96,9 @@ public abstract class Darts implements IDarts {
 		}
 		return true;
 	}
-	/**
-	 * 
-	 */
-	public void nextPlayer(){
-		ActivePlayerNumber ++ ;
-		if(getActivePlayerNumber() == getPlayerCount())
-			ActivePlayerNumber = 0 ; 
-		LeftDarts = 3;
-	}
-	/**
-	 * 
-	 */
-	public int getActivePlayerNumber(){
-		return ActivePlayerNumber;
-	}
-	/**
-	 * 
-	 */
-	public int getPlayerCount(){
-		return PlayerCount;
-	}
-	/**
-	 * 
-	 */
-	public Player[] getPlayers(){
-		return Players;
-	}
-	/**
-	 * 
-	 */
-	public String getGamemode(){
-		return Gamemode;
-	}
 	
 	/**
-	 * 
-	 */
-	public int getLeftDarts(){
-		return LeftDarts;
-	}
-	/**
-	 * 
-	 */
-	public boolean isRunning(){
-		return Running;
-	}
-	/**
-	 * 
-	 */
-	public boolean isOver(){
-		return Over;
-	}
-	/**
-	 * 
-	 */
-	public boolean start(){
-		//TODO
-		return start;
-	}
-	/**
-	 * 
-	 * @param ActivePlayerNumber
-	 */
-	public void setActivePlayerNumber(int ActivePlayerNumber){
-		this.ActivePlayerNumber = ActivePlayerNumber;
-	}
-	/**
-	 * 
-	 */
-	public Player getWinner(){
-		if(isOver())
-			Winner = Players[ActivePlayerNumber];
-		return Winner;
-	}
-	/**
-	 * 
+	 * @see IDarts.
 	 */
 	public boolean throwDart(int number, int multiplier){
 		if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
@@ -195,6 +117,36 @@ public abstract class Darts implements IDarts {
 	public void addToTable(int ActivePlayerNumber , int point , int Row){
 		Table.addPoint(ActivePlayerNumber, point , Row);
 	}
+	
+	
+	/**
+	 * @see IDarts.nextPlayer()
+	 */
+	public void nextPlayer(){
+		ActivePlayerNumber ++ ;
+		if(getActivePlayerNumber() == getPlayerCount())
+			ActivePlayerNumber = 0 ; 
+		LeftDarts = 3;
+	}
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int[] input(){
+		
+	    int numb = Integer.parseInt(JOptionPane.showInputDialog("Number Dart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
+	    int mult = Integer.parseInt(JOptionPane.showInputDialog("multDart " + Integer.toString(4 - LeftDarts) + " von " + Players[ActivePlayerNumber].getName()  ));
+	    ThrowDartValue[0]= numb;
+	    ThrowDartValue[1] = mult;
+	    return ThrowDartValue;    
+	  }
+	
+	
+	/**
+	 * @see IDarts.
+	 */
 	public void endGame(){
 		Over = true ; 
 		getWinner();
@@ -202,6 +154,77 @@ public abstract class Darts implements IDarts {
 		MyFrame.Win.error(Winner.getName());
 
 	}
+	
+	
+	/**
+	 * @see IDarts.
+	 */
+	public int getActivePlayerNumber(){
+		return ActivePlayerNumber;
+	}
+	
+	/**
+	 * @see IDarts.getPlayerCount()
+	 */
+	public int getPlayerCount(){
+		return PlayerCount;
+	}
+	
+	/**
+	 * @see IDarts.getPlayers()
+	 */
+	public Player[] getPlayers(){
+		return Players;
+	}
+	
+	/**
+	 * @see IDarts.getGamemode()
+	 */
+	public String getGamemode(){
+		return Gamemode;
+	}
+	
+	/**
+	 * @see IDarts.getLeftDarts()
+	 */
+	public int getLeftDarts(){
+		return LeftDarts;
+	}
+	
+	/**
+	 * @see IDarts.isRunning()
+	 */
+	public boolean isRunning(){
+		return Running;
+	}
+	
+	/**
+	 * @see IDarts.isOver()
+	 */
+	public boolean isOver(){
+		return Over;
+	}
+
+	
+	/**
+	 * 
+	 * @param ActivePlayerNumber
+	 */
+	public void setActivePlayerNumber(int ActivePlayerNumber){
+		this.ActivePlayerNumber = ActivePlayerNumber;
+	}
+	
+	
+	/**
+	 * @see IDarts.
+	 */
+	public Player getWinner(){
+		if(isOver())
+			Winner = Players[ActivePlayerNumber];
+		return Winner;
+	}
+	
+	
 	/**
 	 * 
 	 * @param a

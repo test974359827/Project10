@@ -71,7 +71,7 @@ public abstract class Darts implements IDarts {
 			        	Test = true;
 			       
 		this.Gamemode = Gamemode; // Spielmodi
-		this.PlayerCount = PlayerCount; // Anzahl der Spieler 
+		this.PlayerCount = PlayerCount; // Anzahl der Spieler.
 		Players = new Player[PlayerCount];
 		
 	/**

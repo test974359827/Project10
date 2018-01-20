@@ -14,7 +14,7 @@ public class DoubleOut extends Darts{
 	/**
 	 * die private Variable für Gewwinpunkte als int
 	 */
-	private int wp = 501 ; // Gewwinpunkte 
+	private int PunktZahl ; // Gewwinpunkte 
 	/**
 	 * die private Variable für Punkte des Spielers als int
 	 */
@@ -30,8 +30,9 @@ public class DoubleOut extends Darts{
 	 * 
 	 * @param PlayerCount
 	 */
-	public DoubleOut(int PlayerCount){
+	public DoubleOut(int PlayerCount, int PunktZahl){
 		super("Double Out",PlayerCount);
+		this.PunktZahl = PunktZahl;
 		playerScores = new int[getPlayerCount()];
 		if(!getTest()) gameDoubleOut(); // Anfang des Spiels
 	}
@@ -65,7 +66,7 @@ public class DoubleOut extends Darts{
 				if(!throwDart(in[0],in[1]))
 					break;
 				Point();
-				if(Point > wp){
+				if(Point > PunktZahl){
 					Sonder();
 					nextPlayer();
 				}
@@ -84,7 +85,7 @@ public class DoubleOut extends Darts{
 	public boolean obgewinnt(){
 		Player[] player = getPlayers();
 		Point();
-		if(getPoint() == wp ){ // wenn wp erreicht wird, ist Game am Ende
+		if(getPoint() == PunktZahl ){ // wenn wp erreicht wird, ist Game am Ende
 			if(player[getActivePlayerNumber()].getThrowDartValueByIndex(player[getActivePlayerNumber()].getThrowDartValue().length-1, 1) == 2 )
 			return true;
 		}
@@ -142,7 +143,7 @@ public class DoubleOut extends Darts{
 	public int[] getScore() {
 		Player[] ListOfPlayer = getPlayers();
 		for(int i = 0; i < getPlayerCount(); i++) {
-			playerScores[i] = wp;
+			playerScores[i] = PunktZahl;
 			if(ListOfPlayer[i].getThrowDartValue() != null){//TODO baraye Arian
 				for(int j = 0; j < ListOfPlayer[i].getThrowDartValue().length; j++) 
 					playerScores[i] = playerScores[i] - ListOfPlayer[i].getThrowDartValueByIndex(j, 0) * ListOfPlayer[i].getThrowDartValueByIndex(j, 1) ;	

@@ -3,7 +3,7 @@ package dart;
 public class Tactics extends Darts{
 	
 	
-	int[][] PlayerPoint; // die Punkte von Player wird hier gespeichert.
+	public int[][] PlayerPoint; // die Punkte von Player wird hier gespeichert.
 	
 /**
  * Hier wird mithilfe von PlayerCount Tactics gespielt.
@@ -28,6 +28,34 @@ public class Tactics extends Darts{
 	  
 	
 	}
+	public int PlayerPointMerge[][] ; 
+	
+	public int[][] Merg() {
+		// Hier wird die gleiche werte von Array PlayerPoint in einem anderen Array gemerged.
+		// Z.B.: 18 (Nummer)& 2(	Multiplikator) ,18 (Nummer)& 1(Multiplikator) => 18 (Nummer)& 3(Multiplikator)
+		// Algorithmus von Merge:
+		int[][] merg = new int[22][2];
+		for(int a=0; a<21; a++) {
+			merg[a][1] = 0;
+			int temp = 0 ;
+			for(int b=0; b< PlayerPoint.length ; b++) {
+				if(PlayerPoint[b][0]==a) {
+					temp= temp+PlayerPoint[b][1];
+					} 
+				}
+			merg[a][0]= a;    // welche Nummer der Player getroffen hat
+			merg[a][1] = temp;
+			}
+		for(int b=0; b< PlayerPoint.length ; b++){
+			if(PlayerPoint[b][0] == 25)
+				merg[21][1] = merg[21][1]  + PlayerPoint[b][1];
+		} 
+		merg[21][0] = 25;
+		PlayerPointMerge = new int[22][2];
+		PlayerPointMerge = merg;
+		return merg;
+	}
+	
 	
 	/**
 	 * hier wird entschieden ob Player gewonnen hat.
@@ -35,30 +63,10 @@ public class Tactics extends Darts{
 	 * @return true or false, True wenn Spieler gewonnen hat und else false
 	 */
 	public boolean gewonnen(){
-		
-		
-
-		
-		int PlayerPointMerge[][] = new int [22][2] ; 
-		
-	// Hier wird die gleiche werte von Array PlayerPoint in einem anderen Array gemerged.
-	// Z.B.: 18 (Nummer)& 2(	Multiplikator) ,18 (Nummer)& 1(Multiplikator) => 18 (Nummer)& 3(Multiplikator)
-	// Algorithmus von Merge:
-		int wert=0;
-		for(int a=1; a<22; a++) {
-			wert=0;
-			for(int b=0; b< PlayerPoint.length ; b++) {
-				if(PlayerPoint[b][0]==a) {
-					wert= wert+PlayerPoint[b][1];
-					} if(PlayerPoint[b][0]==25){
-						wert= wert+PlayerPoint[b][1];	
-				}
-					PlayerPointMerge[a][1]= wert; // Multiplikator von der Zahl
-					PlayerPointMerge[a][0]= a;    // welche Nummer der Player getroffen hat
-				
-				}
-			
-			}
+		Merg();
+		int[][] temp = PlayerPointMerge;
+		 for(int i = 1 ; i < temp.length ; i++)
+			 System.out.println(Integer.toString(temp[i][0]) + " "+Integer.toString(temp[i][1]) );
 	for(int i= 9; i< PlayerPointMerge.length; i++) { // entscheidet ob der Spieler gewonnen hat.
 			// wenn Player alle Zahlen von 10 bis 20 und 25 dreimal getroffen hat dann hat er gewonnen.
 		if(PlayerPointMerge[i][0]==i+1 

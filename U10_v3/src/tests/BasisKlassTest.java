@@ -10,7 +10,7 @@ public class BasisKlassTest {
 	
 	 @Test
 	 public void PlayerTest(){
-		 DoubleOut Basis = new DoubleOut(5);
+		 DoubleOut Basis = new DoubleOut(5,501);
 		 Basis.throwDart(10, 1);
 		 assertEquals(10,Basis.getPlayerByIndex(0).getThrowDartValueByIndex(0, 0));
 		 assertEquals(1,Basis.getPlayerByIndex(0).getThrowDartValueByIndex(0, 1));
@@ -31,7 +31,7 @@ public class BasisKlassTest {
 	 @Test
 	 public void DartsTestAddplayerNextPlayer(){
 		 
-		 DoubleOut Basis = new DoubleOut(4);
+		 DoubleOut Basis = new DoubleOut(4,501);
 		 assertEquals(false,Basis.addPlayer(new Player("Spieler 1")));
 		 assertEquals(true,Basis.addPlayer(new Player("Spieler 11")));
 		 

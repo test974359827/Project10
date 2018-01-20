@@ -13,12 +13,12 @@ public class Tactics extends Darts{
 	public Tactics(int PlayerCount){
 		
 			super("Tactics",PlayerCount); //
-			gameTactics();
-			
+			if(! getTest()) gameTactics();
+		
 		}
 	/**
 	 * die Punkte von Player wird mithilfe von Klasse Player in Array gespeichert.
-	 * @param Player
+	 * @param Player 
 	 */
 	public void Point(Player Player){
 		PlayerPoint = Player.getThrowDartValue();
@@ -75,7 +75,7 @@ public class Tactics extends Darts{
 				throwDart(in[0],in[1]);
 				Point(player);
 				if(gewonnen()) { // wenn Player gewonnen hat dann endGame.
-			//		setGameWinner(true);
+					setGameWinner(true);
 					endGame();
 				}
 			} 

@@ -12,14 +12,17 @@ import dart.Tactics;
  */
 public class TacticsTest {
 	
-	//
+
 		Tactics Mo = new Tactics(2);
 		
 	 @Test
 	 public void GameStarting(){
 		 
-		 assertEquals(2,Mo.getPlayerCount());
-		 assertEquals("Tactics",Mo.getGamemode());
+	
+		 
+
+		assertEquals(2,Mo.getPlayerCount());
+		assertEquals("Tactics",Mo.getGamemode());
 	
 	
 		 
@@ -47,11 +50,12 @@ public class TacticsTest {
 		 Mo.throwDart(15, 1);
 		 Mo.throwDart(15, 2);
 		 
-		 Mo.gewonnen();
+		 Mo.Point(null);
+		
 		 
 		 
 		 
-		 assertEquals(true, Mo.gewonnen());
+		 assertEquals(true,Mo.gewonnen());
 	 }
 	 
 

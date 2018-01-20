@@ -30,7 +30,7 @@ public class TacticsTest {
 		 Mo.throwDart(20, 2);
 		 Mo.throwDart(17, 2);
 		 Mo.throwDart(14, 3);
-		 Mo.throwDart(9, 2);
+		 Mo.throwDart(9, 3);
 		 Mo.throwDart(18, 2);
 		 Mo.throwDart(19, 2);
 		 Mo.throwDart(25, 2);
@@ -44,12 +44,12 @@ public class TacticsTest {
 		 Mo.throwDart(20, 2);
 		 Mo.throwDart(18, 1);
 		 Mo.throwDart(13, 3);
-		 Mo.throwDart(15, 1);
+	//	 Mo.throwDart(15, 1);
 		 Mo.throwDart(15, 2);
 		 
 		 Mo.Point();
 		 
-		 assertEquals(true,Mo.gewonnen());
+		 assertEquals(false,Mo.gewonnen());
 	 }
 	 
 

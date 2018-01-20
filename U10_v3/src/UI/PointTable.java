@@ -24,7 +24,7 @@ public class PointTable extends JFrame{
 	/**
 	 * Eigenschaften der Tabelle werden hier festgestellt und die Tabelle wird erstellt.
 	 * @param player
-	 * 		Der Spieler 
+	 * 		Der Spieler.
 	 */
 	public PointTable(Player[] player) {
 

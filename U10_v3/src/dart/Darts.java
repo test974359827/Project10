@@ -58,6 +58,9 @@ public abstract class Darts implements IDarts {
 	 	Anzahl der Spieler
 	 */
 	public Darts(String Gamemode, int PlayerCount){
+		
+		
+		// InputFrame für JTest oder Normal
 		Object[] options1 = { "Ja","Nein"  };
 				 JPanel panel = new JPanel();
 			        panel.add(new JLabel("ist das JTest ?"));
@@ -68,11 +71,13 @@ public abstract class Darts implements IDarts {
 
 			        
 			        if(res == 0)
-			        	Test = true;
+			        	Test = true; // Wenn Auf Ja gedruckt wird, ist Spiel für JTest 
 			       
 		this.Gamemode = Gamemode ; 
 		this.PlayerCount = PlayerCount;
 		Players = new Player[PlayerCount];
+		
+		// 
 		if(start())
 			Running = true;
 	}

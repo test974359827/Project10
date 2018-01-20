@@ -47,9 +47,9 @@ public class TacticsTest {
 		 Mo.throwDart(15, 1);
 		 Mo.throwDart(15, 2);
 		 
+		 Mo.Point();
 		 
-		 
-		 assertEquals(true,Mo.gewonnen());
+		 assertEquals(false,Mo.gewonnen());
 	 }
 	 
 

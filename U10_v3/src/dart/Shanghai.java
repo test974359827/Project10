@@ -51,17 +51,10 @@ public class Shanghai extends Darts{
 			
 			if(i <  maxRoundNumber * 3 * getPlayers().length)
 		{
-			Player player = getPlayerByIndex(getActivePlayerNumber()); // Player wird erstellt
 			
 			if(getLeftDarts() > 0){ // verbleibende Würfe
 				int[] in = input(); // Die Eingabe
-				int round = 1; // Rundenummer
-				if(player.getThrowDartValue() == null) // Falls der Spieler noch nicht geworfen hat, Also throwDartValue = null; 
-					round = 1;
-				else 
-					round = (int)(player.getThrowDartValue().length / 3) + 1; // Rundenummer
-
-				throwDart(checkPlayerThrow(in[0], round), in[1]);
+				throwDartsShanghahi(in[0],in[1]);	
 			}
 			else if(getLeftDarts() == 0){ // Sonderregel, falls der Spieler ein Schanghai erzielt(Er gewinnt sofort) 
 				if(specialCase()) { 
@@ -77,6 +70,16 @@ public class Shanghai extends Darts{
 		i++;
 	}
 	
+	public void throwDartsShanghahi(int a1, int a2) {
+		int round = 0; 
+		Player p = getPlayerByIndex(getActivePlayerNumber());
+		if(p.getThrowDartValue() == null) // Falls der Spieler noch nicht geworfen hat, Also throwDartValue = null; 
+			round = 1;
+		else 
+			round = (int)(p.getThrowDartValue().length / 3) + 1; // Rundenummer
+		throwDart(checkPlayerThrow(a1, round), a2);
+		
+	}
 	
 	
 	/**
@@ -116,16 +119,6 @@ public class Shanghai extends Darts{
 		setActivePlayerNumber(temp); // Der jetzige Spieler(bzw. der die höchste Punktzahl erreicht hat) ist der Gewinner.
 		
 	}
-	
-	public boolean obGewonnen() {
-		if(isOver()) {
-			return true;
-			
-		}
-			return false;
-			
-	}
-
 	 
 	/**
 	 * Die Sonderregel, Das Shanghai. Ein Spieler erzielt ein Shanghai, indem er die zu treffende

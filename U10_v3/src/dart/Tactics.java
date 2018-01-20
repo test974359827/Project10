@@ -33,6 +33,7 @@ public class Tactics extends Darts{
 		
 		
 
+		
 		int PlayerPointMerge[][] = new int [22][2] ; 
 		
 	// Hier wird die gleiche werte von Array PlayerPoint in einem anderen Array gemerged.

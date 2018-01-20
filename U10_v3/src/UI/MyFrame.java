@@ -156,7 +156,7 @@ public class MyFrame {
 			 * Hier wird der ausgewählte Spielmodus aufgerufen und gestartet. 
 			 */
 			if(rdbtnDoubleOut.isSelected())
-				 new DoubleOut(PlayerCount);
+				new DoubleOut(PlayerCount,501);
 			 if(rdbtnTaptic.isSelected())
 				 new Tactics(PlayerCount);
 			 if(rdbtnShanghai.isSelected())

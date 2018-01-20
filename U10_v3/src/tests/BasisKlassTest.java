@@ -10,7 +10,7 @@ public class BasisKlassTest {
 	
 	 @Test
 	 public void PlayerTest(){
-		 DoubleOut Basis = new DoubleOut(3);
+		 DoubleOut Basis = new DoubleOut(5);
 		 Basis.throwDart(10, 1);
 		 assertEquals(10,Basis.getPlayerByIndex(0).getThrowDartValueByIndex(0, 0));
 		 assertEquals(1,Basis.getPlayerByIndex(0).getThrowDartValueByIndex(0, 1));
@@ -26,27 +26,19 @@ public class BasisKlassTest {
 
 		 Basis.throwDart(10, 1);
 		 assertEquals(10,Basis.getPlayerByIndex(0).getThrowDartValueByIndex(0, 0));
-		 System.out.println(Basis.getActivePlayerNumber());
 	 }
 	 
 	 @Test
 	 public void DartsTestAddplayerNextPlayer(){
 		 
-		 DoubleOut Basis = new DoubleOut(3);
+		 DoubleOut Basis = new DoubleOut(4);
 		 assertEquals(false,Basis.addPlayer(new Player("Spieler 1")));
-//		 assertEquals(true,Basis.addPlayer(new Player("Spieler 11")));
+		 assertEquals(true,Basis.addPlayer(new Player("Spieler 11")));
 		 
 	 }
 	 
 	 
 	 @Test
 	 public void DartsTestNextPlayer(){
-		 DoubleOut Basis = new DoubleOut(3);
-		 assertEquals(3,Basis.getPlayerCount());
-		 assertEquals("Double Out",Basis.getGamemode());
-
-		 Basis.throwDart(10, 1);
-		 assertEquals(10,Basis.getPlayerByIndex(0).getThrowDartValueByIndex(0, 0));
-		 System.out.println(Basis.getActivePlayerNumber());
 	 }
 }

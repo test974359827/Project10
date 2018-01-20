@@ -44,16 +44,17 @@ public class MyFrame {
 	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					 Win = new MyFrame();
-					Win.frmDart.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		run();
+	}
+	
+	public static void run() {
+		Win = null;
+		try {
+			 Win = new MyFrame();
+			Win.frmDart.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**

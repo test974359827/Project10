@@ -19,6 +19,7 @@ public class Tactics extends Darts{
 	/**
 	 * die Punkte von Player wird mithilfe von Klasse Player in Array gespeichert.
 	 * @param Player 
+	 * kein Return
 	 */
 	public void Point(){
 		PlayerPoint = getPlayerByIndex(getActivePlayerNumber()).getThrowDartValue();

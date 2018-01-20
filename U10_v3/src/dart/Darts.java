@@ -100,7 +100,7 @@ public abstract class Darts implements IDarts {
 			else{
 				int i = PlayerCount;
 				while(i > 0){
-					Player player = new Player("Spiler "+Integer.toString(PlayerCount - i+1));
+					Player player = new Player("Spieler "+Integer.toString(PlayerCount - i+1));
 					if(addPlayer(player)){ // �berpr�ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss n�chste Spieler gefragt werden.
 						i--;
 					}

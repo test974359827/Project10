@@ -44,14 +44,9 @@ public abstract class Darts implements IDarts {
 	/**
 	 * 
 	 */
-	private boolean Test = false;
+	private boolean Test = false; // Gibt true züruck, falls nur Tests durchzuführen sind, ansonten false, when das Spiel durchzuführen ist.
 	
-	/**
-	 * private Atribute als boolean 
-	 * Wenn true : Game hat ein Winner
-	 * Wenn false : Game hat kein Winner
-	 */
-	private boolean GameWinner = false;
+	private boolean GameWinner = false; // Gibt true zuürck, falls das Spiel ein Gewinner hat und false, falls kein Gewinner. 
 	
 	/**
 	 * Konstruktor
@@ -83,7 +78,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.start()
 	 */
-	public boolean start(){ //  
+	public boolean start(){ // TODO
 		//TODO
 		if(PlayerCount != 0){
 			if(!Test){
@@ -184,10 +179,11 @@ public abstract class Darts implements IDarts {
 	
 	
 	/**
-	 * 
+	 * Die Methode input dient zur Eingabe. Alles bezüglich der Input-Eingabe wird hier gemacht. 
 	 * @return
+	 * 		Gibt die Eingabe zurück
 	 */
-	public int[] input(){// TODO
+	public int[] input(){
 		
 		String num = inBox("Number","Number Dart " + Integer.toString(4 - LeftDarts) +
 				" von " + Players[ActivePlayerNumber].getName()  );
@@ -196,7 +192,7 @@ public abstract class Darts implements IDarts {
 		}
 		catch(Exception e){
 			if(!Over)
-				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewï¿½hlt");
+				JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
 			ThrowDartValue[0] = 0 ;
 		}
 		if(!Over){
@@ -206,13 +202,24 @@ public abstract class Darts implements IDarts {
 			ThrowDartValue[1] =Integer.parseInt(mul);
 		}
 		catch(Exception e){
-			JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewï¿½hlt");
+			JOptionPane.showMessageDialog(null,"keine Number eingegeben ist, deshalb wird 0 asugewählt");
 			ThrowDartValue[1] = 0 ;
 		}}
 	    return ThrowDartValue;    
 	  }
-	String in = null ;
-	int res;
+	private String in = null ;
+	private int res;
+	
+	
+	/**
+	 * Die Methode bezieht sich auf das Input Kästchen, das zur Eingabe etc. auftatucht. 
+	 * @param Title
+	 * 		Title der Nachrichtenbox
+	 * @param Message
+	 * 		Die Nachricht in der Nachrichtenbox
+	 * @return
+	 * 		Gibt die eingegebene Nachricht in dem Textfeld zurück.
+	 */
 	public String inBox(String Title , String Message){
 		 in = null;
 		Object[] options1 = { "ADD",
@@ -263,11 +270,11 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.endGame()
 	 */
-	public void endGame(){// TODO
+	public void endGame(){
 		Over = true ;
 		if(GameWinner){ 
-			getWinner();}
-		//TODO SHAYAN 
+			getWinner();
+			}
 		
 		if(Winner != null)
 			MSG(" Winner is : " + Winner.getName() );
@@ -279,7 +286,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.getWinner()
 	 */
-	public Player getWinner(){ // TODO
+	public Player getWinner(){ 
 		Winner = Players[ActivePlayerNumber];
 		return Winner;
 	}
@@ -335,9 +342,8 @@ public abstract class Darts implements IDarts {
 	}
 
 	
-	/**
-	 * //TODO
-	 * Setter
+	/** 
+	 * Stellt den derzeitigen Spieler fest(der gerade am Spielen ist.) 
 	 * 
 	 */
 	public void setActivePlayerNumber(int ActivePlayernumber){
@@ -346,30 +352,47 @@ public abstract class Darts implements IDarts {
 	
 	
 	/**
-	 * //TODO
-	 * @param a
-	 * @return
+	 * Die Methode gibt den entsprechenden Spieler basierend auf dem Index in dem Array zurück.
+	 * @param a 
+	 * 		Index 
+	 * @return 
+	 * 		Gibt die i-te Stelle bzw. den i-ten Spieler aus. 
 	 */
-	public Player getPlayerByIndex(int a ){
+	public Player getPlayerByIndex(int a){
 		return Players[a];
 	}
 	
 	/**
-	 * Setter
-	 * 
+	 * Die Methode stellt den Gewinner fest.
 	 * @param GameWinner
+	 * 		gibt true zurück, falls es einen Gewinner gibt, ansonsten false.
 	 */
 	public void setGameWinner(boolean GameWinner){
 		this.GameWinner = GameWinner;
 	}
 	
+	/**
+	 * Diese Methode zeigt die Nachrichten in dem GUI an. 
+	 * @param a 
+	 * 		a enthält die Nachricht als String 
+	 */
 	public void MSG(String a){
 		JOptionPane.showMessageDialog(null,a);
 	}
 	
-	public void setTest(boolean a){
-		Test = a ;
+	/**
+	 * Setter: für Test
+	 * @param Test als Boolean
+	 * 		
+	 */
+	public void setTest(boolean Test){
+		this.Test = Test ;
 	}
+	
+	/**
+	 * Getter: für Test
+	 * @return Test als Boolean 
+	 */
 	public boolean getTest(){
 		return Test;
 	}

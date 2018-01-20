@@ -155,6 +155,15 @@ public abstract class Darts implements IDarts {
 
 	}
 	
+	/**
+	 * @see IDarts.
+	 */
+	public Player getWinner(){
+		if(isOver())
+			Winner = Players[ActivePlayerNumber];
+		return Winner;
+	}
+	
 	
 	/**
 	 * @see IDarts.
@@ -215,14 +224,7 @@ public abstract class Darts implements IDarts {
 	}
 	
 	
-	/**
-	 * @see IDarts.
-	 */
-	public Player getWinner(){
-		if(isOver())
-			Winner = Players[ActivePlayerNumber];
-		return Winner;
-	}
+	
 	
 	
 	/**

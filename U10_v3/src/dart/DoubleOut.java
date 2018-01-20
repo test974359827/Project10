@@ -14,7 +14,7 @@ public class DoubleOut extends Darts{
 	/**
 	 * die private Variable für Gewwinpunkte als int
 	 */
-	private int wp = 51 ; // Gewwinpunkte 
+	private int wp = 501 ; // Gewwinpunkte 
 	/**
 	 * die private Variable für Punkte des Spielers als int
 	 */
@@ -32,20 +32,25 @@ public class DoubleOut extends Darts{
 	 */
 	public DoubleOut(int PlayerCount){
 		super("Double Out",PlayerCount);
-		gameDoubleOut(); // Anfang des Spiels
+		playerScores = new int[getPlayerCount()];
+		if(!getTest()) gameDoubleOut(); // Anfang des Spiels
 	}
 	/**
 	 * Point : für Rechnung bisheriger Punkte Spieler
 	 * 
 	 * @param Player , der active ist
 	 */
-	public void Point(Player Player){
+	public void Point(){
 		Point = 0 ; 
-		int[][] PlayerPoint = Player.getThrowDartValue();
+		int[][] PlayerPoint = getPlayerByIndex(getActivePlayerNumber()).getThrowDartValue();
 		for(int i = 0 ; i < PlayerPoint.length ; i++)
 			Point = PlayerPoint[i][0] * PlayerPoint[i][1] + Point; 
 	}
 
+	public int getPoint(){
+		return Point;
+	}
+	
 	/**
 	 * gameDoubleOut : hier wird das Spiel durchgeführt
 	 * 
@@ -55,29 +60,36 @@ public class DoubleOut extends Darts{
 	public void gameDoubleOut(){
 		// solange Spiel noch gespielt wird ...
 		while(! isOver()){
-			Player player = getPlayerByIndex(getActivePlayerNumber());
 			if(getLeftDarts() > 0){ 
 				int[] in = input();
-				throwDart(in[0],in[1]);
-				Point(player);
+				if(!throwDart(in[0],in[1]))
+					break;
+				Point();
 				if(Point > wp){
 					Sonder();
 					nextPlayer();
 				}
-					
-				if(Point == wp ){ // wenn wp erreicht wird, ist Game am Ende
-					if(in[1] == 2 )
+				if(obgewinnt()){
+						setGameWinner(true);
 						endGame();
-					else{ 
-						Sonder();
-						nextPlayer();
-					}	
 				}
 			}
 			else if(getLeftDarts() == 0)
 				nextPlayer();
 		}
 		
+	}
+	
+	
+	public boolean obgewinnt(){
+		Player[] player = getPlayers();
+		Point();
+		if(getPoint() == wp ){ // wenn wp erreicht wird, ist Game am Ende
+			if(player[getActivePlayerNumber()].getThrowDartValueByIndex(player[getActivePlayerNumber()].getThrowDartValue().length-1, 1) == 2 )
+			return true;
+		}
+		return false;
+			
 	}
 		
 	/**
@@ -94,27 +106,27 @@ public class DoubleOut extends Darts{
 		switch (getLeftDarts()){
 		case 2 : 
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 1 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			player.setThrowDartValue(TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			player.setThrowDartValue(TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			break;
 		case 1 : 
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 2 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length-1);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length-1);
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 1 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			player.setThrowDartValue(TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			break;
 		case 0 : 
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 3 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length-2);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length-2);
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 2 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length-1);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length-1);
 			player.setThrowDartValueByIndex(player.getThrowDartValue().length - 1 , TD);
-			addToTable(getActivePlayerNumber(), 0, player.getThrowDartValue().length);
+			addToTable(getActivePlayerNumber(), "0 * 0", player.getThrowDartValue().length);
 			break;
 		}
 	}
@@ -130,12 +142,11 @@ public class DoubleOut extends Darts{
 	public int[] getScore() {
 		Player[] ListOfPlayer = getPlayers();
 		for(int i = 0; i < getPlayerCount(); i++) {
-			int temp = 0;
-			int [][] historyPoint = ListOfPlayer[i].getThrowDartValue();
-			for(int j = 0; j < ListOfPlayer[i].getThrowDartValue().length; j++) {
-				temp = temp + historyPoint[j][0] * historyPoint[j][1];				
+			playerScores[i] = wp;
+			if(ListOfPlayer[i].getThrowDartValue() != null){//TODO baraye Arian
+				for(int j = 0; j < ListOfPlayer[i].getThrowDartValue().length; j++) 
+					playerScores[i] = playerScores[i] - ListOfPlayer[i].getThrowDartValueByIndex(j, 0) * ListOfPlayer[i].getThrowDartValueByIndex(j, 1) ;	
 			}
-			playerScores[i] = wp - temp;
 		}
 		
 		return playerScores;

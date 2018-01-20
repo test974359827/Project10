@@ -34,6 +34,7 @@ public class MyFrame {
 	JRadioButton rdbtnTaptic = new JRadioButton("Tactics");
 	JRadioButton rdbtnShanghai = new JRadioButton("Shanghai");
 	JLabel label = new JLabel("");
+	private final JLabel lblError = new JLabel("");
 	public static MyFrame Win ;
 
 
@@ -126,12 +127,17 @@ public class MyFrame {
 		Dimension Framesize = Toolkit.getDefaultToolkit().getScreenSize();
 		int x = Framesize.width / 3, y = Framesize.height / 3 ;
 		frmDart.getContentPane().add(label);
+		lblError.setForeground(Color.RED);
+		lblError.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblError.setBounds(40, 110, 529, 39);
+		
+		frmDart.getContentPane().add(lblError);
 		
 		
 		
 		
 		frmDart.setTitle("Dart");
-		frmDart.setBounds(x + 100, y + 100, 630, 162);
+		frmDart.setBounds(x + 100, y + 100, 630, 209);
 		frmDart.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
@@ -158,4 +164,8 @@ public class MyFrame {
 
 	
 	
+	public void error(String a){
+		frmDart.setVisible(true);
+		lblError.setText(a);
+	}
 }

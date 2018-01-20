@@ -1,6 +1,6 @@
 package dart;
 /**
- * diese method ist für GameMode : Double Out
+ * Diese Methode ist für GameMode : Double Out
  * 
  * In diesem Spielmodus
  * startet ein Spieler standardmäßig mit einer Punktzahl von 501 Punkten und muss diese auf

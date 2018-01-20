@@ -18,7 +18,7 @@ public class BasisKlassTest {
 		 assertEquals("Spieler 2",Basis.getPlayerByIndex(1).getName());
 		 assertEquals("Spieler 3",Basis.getPlayerByIndex(2).getName());
 	 }
-
+	 
 	 @Test
 	 public void DartsTestThrowDart(){
 		 Tactics Basis = new Tactics(3);

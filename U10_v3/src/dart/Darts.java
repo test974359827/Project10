@@ -6,35 +6,36 @@ import UI.*;
 
 public abstract class Darts implements IDarts {
 	/**
-	 * //TODO
+	 * ActivePlayerNumber= der Player, der momentan spielt.
+	 * PlayerCount = Anzahl alle Players
 	 */
 	private int ActivePlayerNumber = 0,PlayerCount = 0;
 	/**
-	 * //TODO
+	 * LeftDarts= Anzahl der Darts der Player noch hat.
 	 */
 	private int LeftDarts = 3 ; 
 	/**
-	 * //TODO
+	 * Players= mit eigenschaft von klasse Player
 	 */
 	private Player[] Players ;
 	/**
-	 * //TODO
+	 * Gamemode= welche Gamemode momentan wir drin sind.
 	 */
 	private String Gamemode = null;
 	/**
-	 * //TODO
+	 * Running=
 	 */
 	private boolean Running = false, Over = false, start = false  ; 
 	/**
-	 * //TODO
+	 * Winner= welche Player gewonnen hat.
 	 */
 	private Player Winner = null; 
 	/**
-	 * //TODO
+	 * ThrowDartValue= welche Nummer der Player getroffen hat.
 	 */
 	public int[] ThrowDartValue = new int[2];
 	/**
-	 * //TODO
+	 * Table=
 	 */
 	public PointTable Table ;
 	/**
@@ -55,7 +56,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.start()
 	 */
-	public boolean start(){ // TODO
+	public boolean start(){ //  
 		//TODO
 		if(PlayerCount != 0){
 			int i = PlayerCount;

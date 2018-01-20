@@ -20,7 +20,7 @@ public class Shanghai extends Darts{
 		gameShanghai(); // Die Basismethode der Spielmodi Schangahi, die hier aufgerufen und ausgeführt wird.
 	}
 	
-	
+
 	/**
 	 * Die Methode prüft. ob in der ersten
 	 Runde nur Punkte mit Würfen auf das Feld mit der 1 erzielt werden (mit Doppel und Trippel

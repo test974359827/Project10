@@ -10,27 +10,29 @@ import UI.*;
 public abstract class Darts implements IDarts {
 	/**
 	 * ActivePlayerNumber= der Player, der momentan spielt.
-	 * PlayerCount = Anzahl alle Players
+	 * PlayerCount = Anzahl aller Spieler
 	 */
 	private int ActivePlayerNumber = 0,PlayerCount = 0;
 	/**
-	 * LeftDarts= Anzahl von Darts der Player noch Ã¼brig hat.
+	 * LeftDarts= Anzahl der Würfe, der ein Spieler noch übrig hat.
 	 */
 	private int LeftDarts = 3 ; 
 	/**
-	 * Players= Player mit eigenschaft von klasse Player
+	 * Players= Ein Array, das alle Spieler enthält.
 	 */
 	private Player[] Players ;
 	/**
-	 * Gamemode= die Gamemode, die wir momentan  drin sind.
+	 * Gamemode= Spielmodus
 	 */
 	private String Gamemode = null;
 	/**
-	 * Running=
+	 * Running= When das Spiel am Laufen ist. 
+	 * Over = Wenn das Spiel zu Ende ist. 
+	 * Start = Anfang
 	 */
 	private boolean Running = false, Over = false, start = false  ; 
 	/**
-	 * Winner= der Player, der gewonnen hat.
+	 * Winner= der Spieler, der gewonnen hat.
 	 */
 	private Player Winner = null; 
 	/**
@@ -38,7 +40,7 @@ public abstract class Darts implements IDarts {
 	 */
 	public int[] ThrowDartValue = new int[2];
 	/**
-	 * Table=
+	 * Table= Die Tabelle, in der die Ergebnisse angezeigt werden.
 	 */
 	public PointTable Table ;
 	/**
@@ -49,9 +51,11 @@ public abstract class Darts implements IDarts {
 	private boolean GameWinner = false; // Gibt true zuürck, falls das Spiel ein Gewinner hat und false, falls kein Gewinner. 
 	
 	/**
-	 * Konstruktor
+	 * Hier wird der Konstruktor der Klasse Darts erstellt.
 	 * @param Gamemode
+	 * 		Spielmodi
 	 * @param PlayerCount
+	 	Anzahl der Spieler
 	 */
 	public Darts(String Gamemode,int PlayerCount){
 		Object[] options1 = { "Ja","Nein"  };
@@ -135,9 +139,17 @@ public abstract class Darts implements IDarts {
 	}
 	
 	/**
+	 * Diese Methode führt alles bezüglich der Würfe durch. 
+	 * @param number
+	 * 		Zahl
+	 * @param multiplier
+	 * 		 Multipikator
+	 * @return 
+	 * 		Gibt true zurück, falls der Spieler geworfen hat und ansonsten false. 
+	 * 
 	 * @see IDarts.throwDart(number,multiplier)
 	 */
-	public boolean throwDart(int number, int multiplier){ // TODO^
+	public boolean throwDart(int number, int multiplier){ 
 		if(!Over){
 			if((number > 0 && number < 21 && multiplier > 0 && multiplier < 4) || (number == 25 && multiplier > 0 && multiplier < 3)){
 				int[] a = {number , multiplier};
@@ -157,10 +169,13 @@ public abstract class Darts implements IDarts {
 	}
 	
 	/**
-	 * 
-	 * @param ActivePlayerNumber
-	 * @param point
+	 * Diese Methode fügt Elemente(Punktzahl) zu unserer Ergebnistabele hinzu.
+	 * @param ActivePlayerNumber 
+	 * 		Derzeitige Spieler
+	 * @param point 
+	 *	Punkteanzahl 
 	 * @param Row
+	 *	Reihe in der Tabelle
 	 */
 	public void addToTable(int ActivePlayerNumber , String point , int Row){
 		Table.addPoint(ActivePlayerNumber, point , Row);
@@ -170,7 +185,7 @@ public abstract class Darts implements IDarts {
 	/**
 	 * @see IDarts.nextPlayer()
 	 */
-	public void nextPlayer(){// TODO
+	public void nextPlayer(){
 		ActivePlayerNumber ++ ;
 		if(getActivePlayerNumber() == getPlayerCount())
 			ActivePlayerNumber = 0 ; 

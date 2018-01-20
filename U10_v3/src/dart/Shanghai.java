@@ -17,7 +17,7 @@ public class Shanghai extends Darts{
 	 */
 	public Shanghai(int PlayerCount){
 		super("Shanghai",PlayerCount);
-		gameShanghai(); // Die Basismethode der Spielmodi Schangahi, die hier aufgerufen und ausgeführt wird.
+		if(!getTest()) gameShanghai(); // Die Basismethode der Spielmodi Schanghai, die hier aufgerufen und ausgeführt wird.
 	}
 	
 
@@ -62,15 +62,16 @@ public class Shanghai extends Darts{
 				throwDart(checkPlayerThrow(in[0], round), in[1]);
 			}
 			else if(getLeftDarts() == 0){ // Sonderregel, falls der Spieler ein Schanghai erzielt(Er gewinnt sofort) 
-				if(specialCase(player)) 
+				if(specialCase(player)) { 
 					setGameWinner(true); // Der Gewinner wird festgestellt
-					endGame(); // Hier wird das Spiel beendet
-					nextPlayer(); /// SOAL KONAM!
+					endGame();} // Hier wird das Spiel beendet
+					nextPlayer(); // Nächste Spieler ist daran
 				}
 		    }
-			whoIsWinner(getScore()); // Die Punktzahl des Gewinners wird ausgegeben.  
+			whoIsWinner(getScore()); // Die Punktzahl des Gewinners wird ausgegeben. 
+			setGameWinner(true); // Der Gewinner wird festgestellt
+			endGame(); // Hier wird das Spiel beendet
 			
-			// ------------ Inja nabayad endGame bashe ?
 	}
 	
 	
@@ -85,8 +86,11 @@ public class Shanghai extends Darts{
 		for(int i = 0; i < getPlayerCount(); i++) {
 			int temp = 0; // Zwischenspeicher 
 			int [][] historyPoint = ListOfPlayer[i].getThrowDartValue(); // Für jeden Spieler werden die Würfe hier gespeichert. 
-			for(int j = 0; j < 27; j++) {
-				temp = temp + historyPoint[j][0] * historyPoint[j][1];				
+			if(historyPoint != null ) {
+				for(int j = 0; j < 27; j++) {
+					temp = temp + historyPoint[j][0] * historyPoint[j][1];				
+				}
+				
 			}
 			playerScores[i] = temp;
 		}

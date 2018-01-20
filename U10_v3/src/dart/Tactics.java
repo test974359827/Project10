@@ -8,7 +8,7 @@ public class Tactics extends Darts{
 	public int[][] PlayerPoint; // die Punkte von Player wird hier gespeichert.
 	
 /**
- * Hier wird mithilfe von PlayerCount Tactics gespielt.
+ * Hier wird mithilfe von PlayerCount Tactics gespielt. 
  * @param PlayerCount : Anzahl alle Players
  */
 	

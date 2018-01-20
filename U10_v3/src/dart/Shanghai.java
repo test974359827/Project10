@@ -6,9 +6,8 @@ package dart;
 
 public class Shanghai extends Darts{
 	
-	private int [] playerScores = null; // In diesem Array werden Punktzahl jeder Spieler gespeichert.
+	private int [] playerScores = new int[getPlayerCount()]; // In diesem Array werden Punktzahl jeder Spieler gespeichert.
 	private int maxRoundNumber = 9; // Maximale Anzahl der Runden
-	
 	
 	/**
 	 * Der Konstruktor der Spielmodi Schanghai
@@ -65,7 +64,7 @@ public class Shanghai extends Darts{
 				throwDart(checkPlayerThrow(in[0], round), in[1]);
 			}
 			else if(getLeftDarts() == 0){ // Sonderregel, falls der Spieler ein Schanghai erzielt(Er gewinnt sofort) 
-				if(specialCase(player)) { 
+				if(specialCase()) { 
 					setGameWinner(true); // Der Gewinner wird festgestellt
 					endGame();} // Hier wird das Spiel beendet
 					nextPlayer(); // Nächste Spieler ist daran
@@ -85,27 +84,27 @@ public class Shanghai extends Darts{
 	 * @return 
 	 * 	gibt das Array zurück, das die Punktzahl für jeden Spieler enthält.
 	 */
-	public int[] getScore() {
+	public int[] getScore() {	
+		
 		Player[] ListOfPlayer = getPlayers(); // Enthält alle Spieler 
 		for(int i = 0; i < getPlayerCount(); i++) {
-			int temp = 0; // Zwischenspeicher 
-			int [][] historyPoint = ListOfPlayer[i].getThrowDartValue(); // Für jeden Spieler werden die Würfe hier gespeichert. 
-			if(historyPoint != null ) {
-				for(int j = 0; j < 27; j++) {
-					temp = temp + historyPoint[j][0] * historyPoint[j][1];				
-				}
-				
+			playerScores[i] = 0 ;
+			if(ListOfPlayer[i].getThrowDartValue() != null){
+				for(int j = 0; j < ListOfPlayer[i].getThrowDartValue().length; j++) 
+					playerScores[i] = playerScores[i] + ListOfPlayer[i].getThrowDartValueByIndex(j, 0) * ListOfPlayer[i].getThrowDartValueByIndex(j, 1) ;	// Berechnung der Punktzahl
 			}
-			playerScores[i] = temp;
+			
 		}
 		
 		return playerScores;
 	}
+
 	
 	/**
 	 * Diese Methode geht am Ende des Spiels das ganze Array durch, welches die Punktzahl jedes Spielers enthält und überprüft,
 	 * welcher Spieler die höchste Punktzahl erreicht hat. 
 	 * @param ps
+	 * 		Punktzahl
 	 */
 	public void whoIsWinner(int [] ps) {
 		int temp = 0; // Zwischenspeicher 
@@ -116,6 +115,15 @@ public class Shanghai extends Darts{
 		}
 		setActivePlayerNumber(temp); // Der jetzige Spieler(bzw. der die höchste Punktzahl erreicht hat) ist der Gewinner.
 		
+	}
+	
+	public boolean obGewonnen() {
+		if(isOver()) {
+			return true;
+			
+		}
+			return false;
+			
 	}
 
 	 
@@ -129,10 +137,11 @@ public class Shanghai extends Darts{
 	 * @return 
 	 * 		gibt true zurück, falls die Bedingungen für die Sonderregel erfüllt sind und false, when nicht. 
 	 */
-	public boolean specialCase(Player player) {
-		int a3 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 1, 1); // Multipikator 1  
-		int a2 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 2, 1); // Multipikator 2
-		int a1 = player.getThrowDartValueByIndex(player.getThrowDartValue().length - 3, 1); // Multipikator 3 
+	public boolean specialCase() {
+		Player p = getPlayerByIndex(getActivePlayerNumber());
+		int a3 = p.getThrowDartValueByIndex(p.getThrowDartValue().length - 1, 1); // Multipikator 1  
+		int a2 = p.getThrowDartValueByIndex(p.getThrowDartValue().length - 2, 1); // Multipikator 2
+		int a1 = p.getThrowDartValueByIndex(p.getThrowDartValue().length - 3, 1); // Multipikator 3 
 		
 		if(a3 == 3 && a2 == 2 && a1 == 1) {		
 			return true;

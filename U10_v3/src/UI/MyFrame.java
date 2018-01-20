@@ -93,7 +93,6 @@ public class MyFrame {
 				if(e.getKeyCode() == KeyEvent.VK_ENTER) start();
 			}
 		});
-		
 		rdbtnDoubleOut.setBounds(124, 67, 113, 29);
 		rdbtnDoubleOut.setSelected(true);
 		frmDart.getContentPane().add(rdbtnDoubleOut); // Spielmodus DoubleOut

@@ -24,6 +24,7 @@ public class Tactics extends Darts{
 
 	 * kein Return
 	 * 
+	 * 
 	 */
 	public void Point(){
 		PlayerPoint = getPlayerByIndex(getActivePlayerNumber()).getThrowDartValue();

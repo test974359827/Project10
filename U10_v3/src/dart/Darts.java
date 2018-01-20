@@ -43,9 +43,7 @@ public abstract class Darts implements IDarts {
 	 * Table= Die Tabelle, in der die Ergebnisse angezeigt werden.
 	 */
 	public PointTable Table ;
-	/**
-	 * 
-	 */
+
 	private boolean Test = false; // Gibt true züruck, falls nur Tests durchzuführen sind, ansonten false, when das Spiel durchzuführen ist.
 	
 	private boolean GameWinner = false; // Gibt true zuürck, falls das Spiel ein Gewinner hat und false, falls kein Gewinner. 

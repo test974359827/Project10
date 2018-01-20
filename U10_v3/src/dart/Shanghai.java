@@ -43,6 +43,7 @@ public class Shanghai extends Darts{
 	
 	
 	/**
+	 * 
 	 * 	 Basis Methode der Spielmodi Schangahi
 	 */
 	public void gameShanghai() {

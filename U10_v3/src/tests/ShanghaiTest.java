@@ -67,7 +67,8 @@ public class ShanghaiTest {
 	 Arian.throwDartsShanghahi(2, 2);
 	 Arian.throwDartsShanghahi(1, 2);// 9
 	
-	 	
+	 
+//	
 	 Arian.getScore();
 	 assertEquals(13, ps[1]);
 	 

@@ -40,7 +40,10 @@ public abstract class Darts implements IDarts {
 	 * //TODO
 	 */
 	public PointTable Table ;
-	
+	/**
+	 * 
+	 */
+	private boolean Test = false;
 	
 	/**
 	 * private Atribute als boolean 
@@ -55,6 +58,18 @@ public abstract class Darts implements IDarts {
 	 * @param PlayerCount
 	 */
 	public Darts(String Gamemode,int PlayerCount){
+		Object[] options1 = { "Ja","Nein"  };
+				 JPanel panel = new JPanel();
+			        panel.add(new JLabel("ist das JTest ?"));
+			        
+			        res = JOptionPane.showOptionDialog(null, panel, "JTest ?",
+			                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+			                null, options1, options1[0]);
+
+			        
+			        if(res == 0)
+			        	Test = true;
+			       
 		this.Gamemode = Gamemode ; 
 		this.PlayerCount = PlayerCount;
 		Players = new Player[PlayerCount];
@@ -70,22 +85,37 @@ public abstract class Darts implements IDarts {
 	public boolean start(){ // TODO
 		//TODO
 		if(PlayerCount != 0){
-			int i = PlayerCount;
-			while(i > 0){
-				String a = inBox("NAME","Geben Sie der Name des Spielers Nummer "+(PlayerCount - i+1)+" ein"); // bekommt ein Name des Spielers
-				Player player = new Player(a);
-				if(addPlayer(player)){ // �berpr�ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss n�chste Spieler gefragt werden.
-					i--;
+			if(!Test){
+				int i = PlayerCount;
+				while(i > 0){
+					String a = inBox("NAME","Geben Sie der Name des Spielers Nummer "+(PlayerCount - i+1)+" ein"); // bekommt ein Name des Spielers
+					Player player = new Player(a);
+					if(addPlayer(player)){ // �berpr�ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss n�chste Spieler gefragt werden.
+						i--;
+					}
 				}
+				start = true;
+				Table = new PointTable(Players);
+				}
+			else{
+				int i = PlayerCount;
+				while(i > 0){
+					Player player = new Player("Spiler "+Integer.toString(PlayerCount - i+1));
+					if(addPlayer(player)){ // �berpr�ft ob ein Spieler doppelt vorkommt oder nicht. wenn ja , muss n�chste Spieler gefragt werden.
+						i--;
+					}
+				}
+				start = true;
+				Table = new PointTable(Players);
 			}
-			start = true;
-			Table = new PointTable(Players);
-			}
-		
+		}
+			
 		else{
 			start = false;
 			MSG("ERROR : We need more player for game. Player Count = 0");
 		}
+		
+		
 		return start;
 	}
 
@@ -336,6 +366,11 @@ public abstract class Darts implements IDarts {
 		JOptionPane.showMessageDialog(null,a);
 	}
 	
-	
+	public void setTest(boolean a){
+		Test = a ;
+	}
+	public boolean getTest(){
+		return Test;
+	}
 	
 }

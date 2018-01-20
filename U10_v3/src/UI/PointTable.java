@@ -1,5 +1,8 @@
 package UI;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -27,7 +30,10 @@ public class PointTable extends JFrame{
 		
 		mod = new DefaultTableModel(data, columns);
 		table = new JTable(mod);
-         
+		
+		Dimension Framesize = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = Framesize.width / 4, y = Framesize.height / 4 ;
+         this.setBounds(x, y, 1000, 458);
         //add the table to the frame
         getContentPane().add(new JScrollPane(table));
         this.setTitle("Table Example");

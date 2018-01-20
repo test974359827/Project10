@@ -1,17 +1,10 @@
 package dart;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Random;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import UI.*;
 
 public abstract class Darts implements IDarts {
@@ -91,7 +84,7 @@ public abstract class Darts implements IDarts {
 		
 		else{
 			start = false;
-			MyFrame.Win.error("ERROR : We need more player for game. Player Count = 0");
+			MSG("ERROR : We need more player for game. Player Count = 0");
 		}
 		return start;
 	}
@@ -246,9 +239,9 @@ public abstract class Darts implements IDarts {
 		//TODO SHAYAN 
 		
 		if(Winner != null)
-			MyFrame.Win.error(Winner.getName());
+			MSG(" Winner is : " + Winner.getName() );
 		else 
-			JOptionPane.showMessageDialog(null,"Game is Over Without Winner");
+			MSG("Game is Over Without Winner");
 		Table.setVisible(true);
 	}
 	
@@ -337,6 +330,10 @@ public abstract class Darts implements IDarts {
 	 */
 	public void setGameWinner(boolean GameWinner){
 		this.GameWinner = GameWinner;
+	}
+	
+	public void MSG(String a){
+		JOptionPane.showMessageDialog(null,a);
 	}
 	
 	

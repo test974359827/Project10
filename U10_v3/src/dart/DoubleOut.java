@@ -68,8 +68,10 @@ public class DoubleOut extends Darts{
 				}
 					
 				if(Point == wp ){ // wenn wp erreicht wird, ist Game am Ende
-					if(in[1] == 2 )
+					if(in[1] == 2 ){
+						setGameWinner(true);
 						endGame();
+					}
 					else{ 
 						Sonder();
 						nextPlayer();
